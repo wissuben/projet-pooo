@@ -1,7 +1,7 @@
 ## Projet d'ecole
 Version informatique du jeu de société The Island.
 ## Equipe:
-* Othman
+* Othmane
 * Oumaima
 * Wissal
 * Adrien
