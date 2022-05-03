@@ -2,7 +2,6 @@ package main;
 import javax.swing.*;
 
 public class Fenetre extends JFrame { // fenetre principal qu'on peut utilioser dans toutes les interfaces
-    private JTextField textField;
     private JLabel label;
     public Fenetre(String titre){
         setTitle(titre); //On donne un titre à notr fenêtre
@@ -13,11 +12,4 @@ public class Fenetre extends JFrame { // fenetre principal qu'on peut utilioser 
     }
 
 
-    public JTextField getTextField(){
-        return textField;
-    }
-
-    public JLabel getLabel(){
-        return label;
-    }
 }
