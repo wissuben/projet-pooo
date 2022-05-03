@@ -11,7 +11,7 @@ public class Menu implements ActionListener {
     private JTextField textField;
     private JLabel label;
     public Menu() {
-        Fenêtre menu = new Fenêtre("Menu");
+        Fenetre menu = new Fenetre("Menu");
         JPanel panel = new JPanel();
         menu.setContentPane(panel);
 

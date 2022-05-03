@@ -8,8 +8,6 @@ import javax.swing.JFrame;
 
 public class Main {
 
-	private JFrame frame;
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
