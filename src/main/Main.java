@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 //code
 
-public class main {
+public class Main {
 
 	private JFrame frame;
 
@@ -14,8 +14,7 @@ public class main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					main window = new main();
-					window.frame.setVisible(true);
+					Menu window = new Menu();// juste pour tester
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -23,15 +22,7 @@ public class main {
 		});
 	}
 
-	public main() {
-		initialize();
-	}
-
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100,100, 850,600);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	public Main() {
 	}
 
 }
