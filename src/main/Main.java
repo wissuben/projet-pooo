@@ -1,8 +1,8 @@
 package main;
 
-import java.awt.EventQueue;
+import Vue.Menu.MeuPrincipal;
 
-import javax.swing.JFrame;
+import java.awt.EventQueue;
 
 //code
 
@@ -12,7 +12,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Menu window = new Menu();// juste pour tester
+					new MeuPrincipal();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

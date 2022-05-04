@@ -1,4 +1,6 @@
-package main;
+package Vue.Menu;
+
+import main.Menu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ public class GetAction extends AbstractAction {
     }
 
     public void actionPerformed(ActionEvent e) {
-        String texteUtilisateur = menu.getTextField().getText();
-        menu.getLabel().setText(texteUtilisateur);
+        String pseudo1 = menu.getTextFieldPseudo1().getText();
+        menu.getLabelPseudo().setText(pseudo1);
     }
 }
