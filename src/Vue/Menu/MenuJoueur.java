@@ -145,6 +145,9 @@ public class MenuJoueur extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 Object source = e.getSource();
                 if(source == btnContinuer){
+                    /**
+                     * J'ai mis les affichages juste pour faciliter le débogage
+                     */
                     System.out.println("Vous avez cliqué sur continuer.");
                 }
                 Menu t1=new Menu();

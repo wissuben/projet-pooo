@@ -46,6 +46,9 @@ public class MeuPrincipal implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if(source == valider){
+            /**
+             * J'ai mis les affichages juste pour faciliter le débogage
+             */
             System.out.println("Vous avez cliqué sur valider.");
         }
         new MenuJoueur();
