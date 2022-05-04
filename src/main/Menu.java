@@ -30,8 +30,8 @@ public class Menu implements ActionListener {
         Fenetre menu = new Fenetre("Menu");
         JPanel panel = new JPanel();
         menu.setContentPane(panel);
-
         panel.setBackground(Color.blue);
+
         label = new JLabel("Saisir pseudo");
         panel.add(label);
 
