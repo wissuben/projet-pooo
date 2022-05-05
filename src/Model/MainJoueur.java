@@ -12,20 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainJoueur {
-    private List<EnsembleTuile>tuiles;
+    private List<Piece>tuiles;
 
     public MainJoueur(){
-        tuiles=new ArrayList<EnsembleTuile>();
+        tuiles=new ArrayList<Piece>();
     }
 
-    public void addTuile(EnsembleTuile tl){
+    public void addTuile(Piece tl){
         tuiles.add(tl);
     }
 
-    public EnsembleTuile getTuile(int index){
+    public Piece getTuile(int index){
         return  tuiles.get(index);
     }
-    public EnsembleTuile retirerTuile(){
+    public Piece retirerTuile(){
         return tuiles.remove(0);
     }
 }

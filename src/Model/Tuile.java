@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Couleur;
+import Model.CouleurTuile;
 
 /**
  * Classe Model.Tuile.
@@ -12,16 +12,16 @@ import Model.Couleur;
  * @author Oumaima HAIMAR.
  */
 public class Tuile {
-    private Couleur couleur;
+    private CouleurTuile couleur;
     private TypeTuile typeTuile;
     private boolean faceUp;
 
-    public Tuile(Couleur couleur, TypeTuile typeTuile){
+    public Tuile(CouleurTuile couleur, TypeTuile typeTuile){
         super();
         this.couleur = couleur;
         this.typeTuile=typeTuile;
     }
-    public Couleur getCouleur(){
+    public CouleurTuile getCouleur(){
         return couleur;
     }
 

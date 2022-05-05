@@ -152,7 +152,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         lblJoueur3.setForeground(Color.WHITE);
         panell.add(lblJoueur3);
 
-        lblJoueur4 = new JLabel("Joueur 4 :");
+        lblJoueur4 = new JLabel(" Joueur 4 :");
         lblJoueur4.setBounds(113, 386, 60, 36);
         lblJoueur4.setForeground(Color.WHITE);
         panell.add(lblJoueur4);

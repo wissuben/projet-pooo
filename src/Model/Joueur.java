@@ -1,13 +1,13 @@
-package Model; /**
+ /**
  * Classe Model.Joueur.
  * un nom et une main
  *
  * @version 1.0
  *
- * @see UneAutreClasse
+ * @seeUneAutreClasse
  * @author Oumaima HAIMAR.
  */
-
+package Model;
 public class Joueur {
     private String nom;
     private MainJoueur mainJoueur;
@@ -18,10 +18,10 @@ public class Joueur {
         mainJoueur = new MainJoueur();
     }
 
-    public EnsembleTuile getTuile(int index){
+    public Piece getTuile(int index){
         return  mainJoueur.getTuile(index);
     }
-    public EnsembleTuile retirerTuile(){
+    public Piece retirerTuile(){
         return mainJoueur.retirerTuile();
     }
 }

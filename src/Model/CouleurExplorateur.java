@@ -1,9 +1,8 @@
 package Model;
 
-public enum Couleur {
+public enum CouleurExplorateur {
     ROUGE,
     JAUNE,
     BLEU,
     VERT;
 }
-

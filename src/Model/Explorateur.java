@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Couleur;
+import Model.CouleurExplorateur;
 
 /**
  * Classe Model.Explorateur.
@@ -13,14 +13,14 @@ import Model.Couleur;
  */
 public class Explorateur {
     private int valeur;
-    private Couleur couleur;
+    private CouleurExplorateur couleur;
 
-    public Explorateur(int valeur, Couleur couleur){
+    public Explorateur(int valeur, CouleurExplorateur couleur){
         super();
         this.valeur=valeur;
         this.couleur = couleur;
     }
-    public Couleur getCouleur(){
+    public CouleurExplorateur getCouleur(){
         return couleur;
     }
 
