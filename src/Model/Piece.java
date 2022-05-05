@@ -35,6 +35,7 @@ public class Piece {
         /**
          ** Création d'explorateur
          */
+        System.out.println("Création d'explorateur :");
         explorateur= new ArrayList<Explorateur>();
         for(CouleurExplorateur couleur : CouleurExplorateur.values()){
             for (int i=1;i<7;i++){
