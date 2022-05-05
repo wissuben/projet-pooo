@@ -1,5 +1,13 @@
+/**
+ * Classe GetAction.
+ * Pour récuperer les valeurs des textFields
+ *
+ * @version 1.0
+ *
+ * @see UneAutreClasse
+ * @author Oumaima HAIMAR.
+ */
 package Vue;
-
 import Vue.Menu.MenuJoueur;
 
 import javax.swing.*;

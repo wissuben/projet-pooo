@@ -1,5 +1,13 @@
+/**
+ * Classe MenuPrincipal.
+ * Démarrage de jeu
+ *
+ * @version 1.0
+ *
+ * @see UneAutreClasse(none)
+ * @author Oumaima HAIMAR.
+ */
 package Vue.Menu;
-
 import main.Fenetre;
 
 import javax.imageio.ImageIO;
