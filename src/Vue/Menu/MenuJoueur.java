@@ -9,12 +9,10 @@
  */
 package Vue.Menu;
 
-import Vue.GetAction;
+import Controlleur.GetAction;
 import main.Fenetre;
-import main.Menu;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
@@ -34,7 +32,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
     private final JLabel lblJoueur3;
     private final JLabel lblJoueur1;
     private final JLabel lblJoueur2;
-    private final JButton btnLancer;
+    private JButton btnLancer;
     private final JLabel lblAffichage1;
     private final JLabel lblAffichage4;
     private final JLabel lblAffichage2;
@@ -76,29 +74,33 @@ public class MenuJoueur extends JFrame implements ActionListener {
         lblTitre = new JLabel("THE ISLAND");
         lblTitre.setForeground(Color.WHITE);
         lblTitre.setFont(new Font("Noteworthy", Font.PLAIN, 26));
-        lblTitre.setBounds(330, 8, 299, 56);
+        lblTitre.setBounds(350, 8, 299, 56);
         panell.add(lblTitre);
 
         rdbtn2 = new JRadioButton("2");
+        rdbtn2.setActionCommand("2");
         rdbtn2.setForeground(Color.WHITE);
-        rdbtn2.setBounds(130, 120, 40, 23);
+        rdbtn2.setBounds(200, 130, 40, 23);
         panell.add(rdbtn2);
 
         rdbtn4 = new JRadioButton("4");
+        rdbtn4.setActionCommand("4");
         rdbtn4.setForeground(Color.WHITE);
-        rdbtn4.setBounds(259, 120, 141, 23);
+        rdbtn4.setBounds(450, 130, 141, 23);
         panell.add(rdbtn4);
 
+        //rdbtn2.setSelected(true);
+
         lblNombreJoueur = new JLabel("Choisissez le nombre de joueurs :");
-        lblNombreJoueur.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblNombreJoueur.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
         lblNombreJoueur.setForeground(Color.WHITE);
-        lblNombreJoueur.setBounds(35, 80, 262, 23);
+        lblNombreJoueur.setBounds(35, 60, 300, 60);
         panell.add(lblNombreJoueur);
 
         lblPseudo = new JLabel("Saissez vos pseudos joueurs :");
-        lblPseudo.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblPseudo.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
         lblPseudo.setForeground(Color.WHITE);
-        lblPseudo.setBounds(35, 160, 262, 23);
+        lblPseudo.setBounds(35, 160, 262, 40);
         panell.add(lblPseudo);
 
         /**
@@ -106,7 +108,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
          */
         textFieldPseudo1 = new JTextField();
         textFieldPseudo1.setColumns(10); //On lui donne un nombre de colonnes à afficher
-        textFieldPseudo1.setBounds(249, 202, 252, 36);
+        textFieldPseudo1.setBounds(249, 210, 252, 36);
         panell.add(textFieldPseudo1);
 
         /**
@@ -114,7 +116,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
          */
         textFieldPseudo2 = new JTextField();
         textFieldPseudo2.setColumns(10);
-        textFieldPseudo2.setBounds(249, 260, 252, 36);
+        textFieldPseudo2.setBounds(249, 268, 252, 36);
         panell.add(textFieldPseudo2);
 
         /**
@@ -122,7 +124,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
          */
         textFieldPseudo3 = new JTextField();
         textFieldPseudo3.setColumns(10);
-        textFieldPseudo3.setBounds(249, 326, 252, 36);
+        textFieldPseudo3.setBounds(249, 334, 252, 36);
         panell.add(textFieldPseudo3);
 
         /**
@@ -130,7 +132,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
          */
         textFieldPseudo4 = new JTextField();
         textFieldPseudo4.setColumns(10);
-        textFieldPseudo4.setBounds(249, 387, 252, 36);
+        textFieldPseudo4.setBounds(249, 395, 252, 36);
         panell.add(textFieldPseudo4);
 
         /**
@@ -156,25 +158,55 @@ public class MenuJoueur extends JFrame implements ActionListener {
         lblJoueur4.setForeground(Color.WHITE);
         panell.add(lblJoueur4);
 
-        lblAffichage1 = new JLabel("New label");
+        lblAffichage1 = new JLabel("");
+        lblAffichage1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblAffichage1.setForeground(Color.WHITE);
         lblAffichage1.setBounds(558, 214, 202, 15);
         panell.add(lblAffichage1);
 
-        lblAffichage2 = new JLabel("New label");
+        lblAffichage2 = new JLabel("");
+        lblAffichage2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblAffichage2.setForeground(Color.WHITE);
         lblAffichage2.setBounds(558, 272, 202, 15);
         panell.add(lblAffichage2);
 
-        lblAffichage3 = new JLabel("New label");
+        lblAffichage3 = new JLabel("");
+        lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblAffichage3.setForeground(Color.WHITE);
         lblAffichage3.setBounds(558, 336, 202, 15);
         panell.add(lblAffichage3);
 
-        lblAffichage4 = new JLabel("New label");
+        lblAffichage4 = new JLabel("");
+        lblAffichage4.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        lblAffichage4.setForeground(Color.WHITE);
         lblAffichage4.setBounds(558, 397, 202, 15);
         panell.add(lblAffichage4);
 
-        /**
-         ** Button continuer & ActionEvent **
-         */
+/*
+            textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+                @Override
+                public void changedUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+            });
+            btnLancer.setEnabled(false);
+            add(textFieldPseudo1);
+            add(btnLancer);
+*/
+
+
+
+    /**
+     ** Button continuer & ActionEvent **
+     */
 
         btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
         /*btnLancer.addActionListener(new ActionListener() {
@@ -196,6 +228,11 @@ public class MenuJoueur extends JFrame implements ActionListener {
         btnLancer.setBounds(300, 480, 236, 56);
         panell.add(btnLancer);
         menuJoueur.setVisible(true);
+    }
+
+    private void checkBtn() {
+        boolean value = !textFieldPseudo1.getText().trim().isEmpty();
+        btnLancer.setEnabled(value);
     }
     public JTextField getTextFieldPseudo1(){
         return textFieldPseudo1;

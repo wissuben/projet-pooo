@@ -7,7 +7,7 @@
  * @see UneAutreClasse
  * @author Oumaima HAIMAR.
  */
-package Vue;
+package Controlleur;
 import Vue.Menu.MenuJoueur;
 
 import javax.swing.*;
@@ -30,5 +30,7 @@ public class GetAction extends AbstractAction {
         menuJoueur.getLabelPseudo3().setText("Salut "+pseudo3+" ! ");
         String pseudo4 = menuJoueur.getTextFieldPseudo4().getText();
         menuJoueur.getLabelPseudo4().setText("Salut "+pseudo4+" ! ");
+        //String nb = menuJoueur.getSelection().getActionCommand();
+       // System.out.println("Le radio bouton sélectionné est: " +nb);
     }
 }

@@ -32,6 +32,13 @@ public class MeuPrincipal implements ActionListener {
 
         panel.setBackground(Color.blue);
 
+
+        JLabel lblTitre = new JLabel("THE ISLAND");
+        lblTitre.setForeground(Color.WHITE);
+        lblTitre.setFont(new Font("Noteworthy", Font.PLAIN, 30));
+        lblTitre.setBounds(330, 8, 299, 56);
+        panel.add(lblTitre);
+
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File("Images/TheIsland.jpeg"));
@@ -40,11 +47,14 @@ public class MeuPrincipal implements ActionListener {
         }
 
         JLabel pic = new JLabel(new ImageIcon(img));
+        menu.setLayout(null);
+        pic.setBounds(150,80,550,380);
         panel.add(pic);
 
-        valider = new JButton("Valider");
-        valider.addActionListener( this);
-        panel.add(valider);
+        Commencer = new JButton("Commencer");
+        Commencer.setBounds(300, 480, 236, 56);
+        Commencer.addActionListener( this);
+        panel.add(Commencer);
 
         menu.setVisible(true);//On la rend visible
 
