@@ -1,16 +1,9 @@
 package main;
 
-import Vue.Menu.GetAction;
-import main.Fenetre;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class Menu implements ActionListener {
     private JButton valider;
@@ -53,9 +46,9 @@ public class Menu implements ActionListener {
         panel.add(textFieldPseudo4);
 
 
-        JButton boutonn = new JButton(new GetAction(this, "afficher le pseudo"));
+       // JButton boutonn = new JButton(new GetAction(this, "afficher le pseudo"));
 
-        panel.add(boutonn);
+       // panel.add(boutonn);
 
         valider = new JButton("Valider");
         valider.addActionListener( this);

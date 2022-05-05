@@ -9,6 +9,7 @@
  */
 package Vue.Menu;
 
+import Vue.GetAction;
 import main.Fenetre;
 import main.Menu;
 
@@ -34,6 +35,10 @@ public class MenuJoueur extends JFrame implements ActionListener {
     private final JLabel lblJoueur1;
     private final JLabel lblJoueur2;
     private final JButton btnLancer;
+    private final JLabel lblAffichage1;
+    private final JLabel lblAffichage4;
+    private final JLabel lblAffichage2;
+    private final JLabel lblAffichage3;
     private JTextField textFieldPseudo3;
     private JLabel lblTitre;
     private JRadioButton rdbtn2;
@@ -151,22 +156,39 @@ public class MenuJoueur extends JFrame implements ActionListener {
         lblJoueur4.setForeground(Color.WHITE);
         panell.add(lblJoueur4);
 
+        lblAffichage1 = new JLabel("New label");
+        lblAffichage1.setBounds(558, 214, 202, 15);
+        panell.add(lblAffichage1);
+
+        lblAffichage2 = new JLabel("New label");
+        lblAffichage2.setBounds(558, 272, 202, 15);
+        panell.add(lblAffichage2);
+
+        lblAffichage3 = new JLabel("New label");
+        lblAffichage3.setBounds(558, 336, 202, 15);
+        panell.add(lblAffichage3);
+
+        lblAffichage4 = new JLabel("New label");
+        lblAffichage4.setBounds(558, 397, 202, 15);
+        panell.add(lblAffichage4);
+
         /**
          ** Button continuer & ActionEvent **
          */
-        btnLancer = new JButton("Lancer le jeu");
-        btnLancer.addActionListener(new ActionListener() {
+
+        btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
+        /*btnLancer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object source = e.getSource();
                 if(source == btnLancer){
                     /**
                      * J'ai mis les affichages juste pour faciliter le débogage
-                     */
+
                     System.out.println("Vous avez cliqué sur Lancer.");
                 }
                 Menu t1=new Menu();
             }
-        });
+        });*/
 
         btnLancer.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
         btnLancer.setBackground(Color.BLUE);
@@ -175,7 +197,32 @@ public class MenuJoueur extends JFrame implements ActionListener {
         panell.add(btnLancer);
         menuJoueur.setVisible(true);
     }
+    public JTextField getTextFieldPseudo1(){
+        return textFieldPseudo1;
+    }
 
+    public JTextField getTextFieldPseudo2(){
+        return textFieldPseudo2;
+    }
+    public JTextField getTextFieldPseudo3(){
+        return textFieldPseudo3;
+    }
+    public JTextField getTextFieldPseudo4(){
+        return textFieldPseudo4;
+    }
+
+    public JLabel getLabelPseudo(){
+        return lblAffichage1;
+    }
+    public JLabel getLabelPseudo2(){
+        return lblAffichage2;
+    }
+    public JLabel getLabelPseudo3(){
+        return lblAffichage3;
+    }
+    public JLabel getLabelPseudo4(){
+        return lblAffichage4;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
