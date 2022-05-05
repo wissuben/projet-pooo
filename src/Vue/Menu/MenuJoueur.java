@@ -10,7 +10,6 @@
 package Vue.Menu;
 
 import Controlleur.GetAction;
-import main.Fenetre;
 
 import java.awt.BorderLayout;
 import javax.swing.*;

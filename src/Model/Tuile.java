@@ -1,6 +1,10 @@
+package Model;
+
+import Model.Couleur;
+
 /**
- * Classe Tuile.
- * Pour
+ * Classe Model.Tuile.
+ * une valeur, une couleur et un flag indiquant si la tuile est face visible ou cachée)
  *
  * @version 1.0
  *

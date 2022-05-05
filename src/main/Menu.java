@@ -1,5 +1,7 @@
 package main;
 
+import Vue.Menu.Fenetre;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

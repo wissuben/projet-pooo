@@ -1,12 +1,15 @@
-/**
- * Classe EnsembleTuile.
- * Pour
+package Model; /**
+ * Classe Model.EnsembleTuile.
+ * un ensemble de tuiles à jouer
  *
  * @version 1.0
  *
  * @see UneAutreClasse
  * @author Oumaima HAIMAR.
  */
+import Model.Couleur;
+import Model.Tuile;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

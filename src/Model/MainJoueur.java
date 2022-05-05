@@ -1,13 +1,12 @@
-/**
- * Classe MainJoueur.
- * Pour
+package Model; /**
+ * Classe Model.MainJoueur.
+ * un ensemble de piece de jeu détenues par un joueur
  *
  * @version 1.0
  *
  * @see UneAutreClasse
  * @author Oumaima HAIMAR.
  */
-import main.Main;
 
 import java.util.ArrayList;
 import java.util.List;

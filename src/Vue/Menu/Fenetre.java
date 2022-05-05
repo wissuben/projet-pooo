@@ -1,4 +1,4 @@
-package main;
+package Vue.Menu;
 import javax.swing.*;
 
 public class Fenetre extends JFrame { // fenetre principal qu'on peut utilioser dans toutes les interfaces

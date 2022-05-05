@@ -1,13 +1,12 @@
-/**
- * Classe Joueur.
- * Pour
+package Model; /**
+ * Classe Model.Joueur.
+ * un nom et une main
  *
  * @version 1.0
  *
  * @see UneAutreClasse
  * @author Oumaima HAIMAR.
  */
-import javax.swing.*;
 
 public class Joueur {
     private String nom;

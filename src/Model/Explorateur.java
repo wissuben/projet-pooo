@@ -1,5 +1,9 @@
+package Model;
+
+import Model.Couleur;
+
 /**
- * Classe Explorateur.
+ * Classe Model.Explorateur.
  * Pour
  *
  * @version 1.0

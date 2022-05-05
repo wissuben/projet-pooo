@@ -8,7 +8,6 @@
  * @author Oumaima HAIMAR.
  */
 package Vue.Menu;
-import main.Fenetre;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
