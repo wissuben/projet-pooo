@@ -31,7 +31,6 @@ public class MeuPrincipal implements ActionListener {
 
         panel.setBackground(Color.blue);
 
-
         JLabel lblTitre = new JLabel("THE ISLAND");
         lblTitre.setForeground(Color.WHITE);
         lblTitre.setFont(new Font("Noteworthy", Font.PLAIN, 30));
@@ -40,7 +39,7 @@ public class MeuPrincipal implements ActionListener {
 
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("Images/TheIsland.jpeg"));
+            img = ImageIO.read(new File("Images/ExploRouge.png"));
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
