@@ -8,6 +8,14 @@
  * @author Oumaima HAIMAR.
  */
 package Model;
+import Controlleur.RedimensionnerImage;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,10 +29,11 @@ public class Piece {
     /**
      ** Création de pièces
      */
-    public Piece(){
+    public Piece() throws IOException {
         /**
          ** Création de Tuiles
          */
+        JFrame Explorateur = new JFrame("Afficher explorateur");
         tuile= new ArrayList<Tuile>();
         for(CouleurTuile couleur : CouleurTuile.values()){
             for (TypeTuile typeTuile : TypeTuile.values()){
@@ -46,6 +55,7 @@ public class Piece {
                     for(int j=1;j<3;j++){
                         System.out.println("création d'explorateur ["+couleur+"]["+i+"]");
                         explorateur.add(new Explorateur(i,couleur));
+
                     }
                 }
                 /**
@@ -67,9 +77,16 @@ public class Piece {
                     }
                 }
                 System.out.println("création d'explorateur ["+couleur+"]["+i+"]");
+                new RedimensionnerImage("Images/Explo"+couleur+".png");// apres on ajoute la valeur aussii
+
                 explorateur.add(new Explorateur(i,couleur));
             }
         }
+
+        Explorateur.setSize(800,600);
+        Explorateur.setLayout(null);
+        Explorateur.setVisible(true);
+        Explorateur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
@@ -82,7 +99,7 @@ public class Piece {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Piece();
     }
 }

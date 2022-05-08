@@ -1,4 +1,4 @@
-package Vue.Menu;
+package Controlleur;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class RedimensionnerImage {
         BufferedImage bufferedImage = ImageIO.read(new File(imagePathToRead));
         Image image = bufferedImage.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
 
-        ImageIcon icon = new ImageIcon(image);
+      ImageIcon icon = new ImageIcon(image);
         JFrame frame = new JFrame();
         frame.setLayout(new FlowLayout());
         frame.setSize(800, 600);

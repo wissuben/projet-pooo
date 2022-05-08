@@ -1,4 +1,4 @@
-package Vue.Menu;
+package Controlleur;
 
 import javax.swing.*;
 import java.awt.*;
