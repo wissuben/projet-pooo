@@ -11,8 +11,11 @@ package Model; /**
 import java.util.ArrayList;
 import java.util.List;
 
+import Controlleur.RedimensionnerImage;
+
 public class MainJoueur {
     private List<Piece>tuiles;
+    private List<Explorateur>pionExplorateur;
 
     public MainJoueur(){
         tuiles=new ArrayList<Piece>();
@@ -22,6 +25,10 @@ public class MainJoueur {
         tuiles.add(tl);
     }
 
+    public void initPionExporateur(CouleurExplorateur couleur) {
+    	pionExplorateur = Explorateur.initJoueur_PionsExplorateur(couleur);
+    }
+    
     public Piece getTuile(int index){
         return  tuiles.get(index);
     }
