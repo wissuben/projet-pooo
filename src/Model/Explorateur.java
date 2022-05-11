@@ -17,6 +17,9 @@ import Model.CouleurExplorateur;
 public class Explorateur {
     private int valeur;
     private CouleurExplorateur couleur;
+    private Tuile emplacement;
+    private boolean enBateau = false;
+    private Bateau bateau = null;
 
     public Explorateur(int valeur, CouleurExplorateur couleur){
         super();
