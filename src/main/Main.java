@@ -21,9 +21,6 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
-					FenetrePrincipale menu = new FenetrePrincipale();
-					menu.init_fenetre();
-					menu.fenetre_regles();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,12 +32,13 @@ public class Main {
 	public Main() throws IOException {
 		initialize();
 		Tuile.initTuiles();
+		Plateau.initPlateau();
 		Plateau.screenRender(frame);
 		Tuile.setHexagone();
-		Tuile.setTerrain();
+		Tuile.setImageTerrain();
 		Tuile.initVoisin();
 		for (Tuile tuile : Tuile.listeTuile) {
-			System.out.println("x:"+tuile.PositionX + "  y:" +tuile.PositionY +"  index:"+tuile.getIndex() + "  type:"+ tuile.getTypeTuile() +  "	polygone :" + tuile.getHexagon() + "	Voisin : " + tuile.getVoisin());
+			System.out.println("x:"+tuile.PositionX + "  y:" +tuile.PositionY +"  index:"+tuile.getIndex() +"  hexagon:"+tuile.getHexagon() +  "  type:"+ tuile.getTypeTuile() +  "	polygone :" + tuile.getHexagon() + "	Voisin : " + tuile.getVoisin());
 		}
 		System.out.printf("\n  %d \n",Plateau.listHexagone.size());
 	}

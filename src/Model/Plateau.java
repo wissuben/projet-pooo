@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,8 +17,9 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.event.MouseInputListener;
 
-public class Plateau extends JFrame {
+public class Plateau extends JFrame{
 	public static ArrayList<Polygon> listHexagone = new ArrayList<Polygon>();
 	static int
 	posX = 0,
@@ -25,10 +27,13 @@ public class Plateau extends JFrame {
 	imageX = (int)((int)1280/1.4),
 	imageY = (int)((int)1080/1.6);
 	
-	
-	public static void screenRender(JFrame main_frame) throws IOException  {
+	public static void initPlateau() {
 		Plateau.initHexagon();
+	}
+	
+	public static void screenRender(JFrame main_frame) throws IOException  {;
 		JPanel fond = new DrawPlateau();
+		fond.addMouseListener(new MouseListener(main_frame));
 		main_frame.add(fond);
 		main_frame.setVisible(true); 
 	}
@@ -51,7 +56,6 @@ public class Plateau extends JFrame {
 			hexagon.translate(25,43);
 		}
 	}	
-	
 }
 
 

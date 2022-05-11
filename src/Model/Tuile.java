@@ -23,7 +23,7 @@ public class Tuile extends Piece {
 
 	private CouleurTuile couleur;
     private TypeTuile typeTuile;
-    private TuileEffet effetTuile;
+	private TuileEffet effetTuile;
 	private boolean faceUp;
 	private int index;
 	private Polygon hexagon = null;
@@ -281,9 +281,9 @@ public class Tuile extends Piece {
     	}
     }
     
-    public static void setTerrain() {	// Donne une image terrain au tuiles
+    public static void setImageTerrain() {	// Donne une image terrain au tuiles
     	BufferedImage bufferedImage = null;
-    	Image foret =null,montagne = null, plage=null;
+    	Image foret = null, montagne = null, plage = null;
 		try {
 			bufferedImage = ImageIO.read(new File("Images/PiecePNG.png"));
 		} catch (IOException e) {
@@ -303,8 +303,12 @@ public class Tuile extends Piece {
 				tuileTmp.Terrain = plage.getScaledInstance(75, 74, 0);
 			}
 		}
-		//Image image = bufferedImage.getScaledInstance((Plateau.imageX),(Plateau.imageY), Image.SCALE_SMOOTH);
 	}
+    
+    public static void setImageEffet() {
+    
+    }
+    
     
     public static void afficherTuile(Graphics2D g2d) {
     	for(Tuile tuileTmp : listeTuile) {
@@ -451,6 +455,10 @@ public class Tuile extends Piece {
 
 	public boolean isFaceUp() {
 		return faceUp;
+	}
+	
+	public void setTypeTuile(TypeTuile typeTuile) {
+		this.typeTuile = typeTuile;
 	}
 
 
