@@ -23,6 +23,7 @@ public class Tuile extends Piece {
 
 	private CouleurTuile couleur;
     private TypeTuile typeTuile;
+    private TuileEffet effetTuile;
 	private boolean faceUp;
 	private int index;
 	private Polygon hexagon = null;
@@ -438,8 +439,13 @@ public class Tuile extends Piece {
 		return voisin;
 	}
     
-    public void RetirerTuile() {
-        // TODO implement here
+    public static void RetirerTuile(int index) {
+        Tuile tuileTmp;
+    	tuileTmp = listeTuile.get(index);
+    	if(tuileTmp.typeTuile != TypeTuile.VIDE) {
+    		tuileTmp.typeTuile = TypeTuile.MER;
+    		listeTuile.set(index, tuileTmp);
+    	}
     }
 
 
