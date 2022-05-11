@@ -4,6 +4,9 @@ import Vue.Menu.MeuPrincipal;
 
 import java.awt.EventQueue;
 
+import Model.CouleurExplorateur;
+import Model.MainJoueur;
+
 //code
 
 public class Main {
@@ -12,6 +15,8 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					MainJoueur main= new MainJoueur();
+					main.initPionExporateur(CouleurExplorateur.BLEU);
 					new MeuPrincipal();
 				} catch (Exception e) {
 					e.printStackTrace();
