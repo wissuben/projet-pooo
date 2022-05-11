@@ -17,10 +17,9 @@ import Model.Piece;
 
 public class Tuile extends Piece {
 	
-    public static ArrayList<Tuile> listeTuile = new ArrayList<Tuile>();
-    private static int[][] tuliesTab;
+	public static ArrayList<Tuile> listeTuile = new ArrayList<Tuile>();
+	private static int[][] tuliesTab;
     private List<Tuile> voisin = new ArrayList<Tuile>();
-    
 
 	private CouleurTuile couleur;
     private TypeTuile typeTuile;
@@ -43,7 +42,7 @@ public class Tuile extends Piece {
     	int posX = 0,posY = 0;
     	int  k = 0;
     	for(Tuile tuileTmp : Tuile.listeTuile) {
-    		tuileTmp.faceUp = true;
+    		tuileTmp.setFaceUp(true);
     		posX = tuileTmp.PositionX;
     		posY = tuileTmp.PositionY;
     		if (posY == 0){
@@ -285,7 +284,7 @@ public class Tuile extends Piece {
     	BufferedImage bufferedImage = null;
     	Image foret =null,montagne = null, plage=null;
 		try {
-			bufferedImage = ImageIO.read(new File("PiecePNG.png"));
+			bufferedImage = ImageIO.read(new File("Images/PiecePNG.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -442,5 +441,15 @@ public class Tuile extends Piece {
     public void RetirerTuile() {
         // TODO implement here
     }
+
+
+	public boolean isFaceUp() {
+		return faceUp;
+	}
+
+
+	public void setFaceUp(boolean faceUp) {
+		this.faceUp = faceUp;
+	}
 
 }

@@ -74,7 +74,7 @@ class DrawPlateau extends JPanel{		//Permet de dessiner les hexagone et leur ter
 		BufferedImage bufferedImage = null;
 
 		try {
-			bufferedImage = ImageIO.read(new File("MAPVide.png"));
+			bufferedImage = ImageIO.read(new File("Images/MAPVide.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

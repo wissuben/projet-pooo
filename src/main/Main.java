@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 import Model.Plateau;
 import Model.Tuile;
+import Vue.Menu.Fenetre;
+import Vue.Menu.FenetrePrincipale;
 
 public class Main {
 
@@ -19,6 +21,9 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
+					FenetrePrincipale menu = new FenetrePrincipale();
+					menu.init_fenetre();
+					menu.fenetre_regles();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

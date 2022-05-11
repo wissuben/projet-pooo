@@ -14,14 +14,14 @@ import java.util.List;
 import Controlleur.RedimensionnerImage;
 
 public class MainJoueur {
-    private List<Piece>tuiles;
+    private List<Tuile>tuiles;
     private List<Explorateur>pionExplorateur;
 
     public MainJoueur(){
-        tuiles=new ArrayList<Piece>();
+        tuiles=new ArrayList<Tuile>();
     }
 
-    public void addTuile(Piece tl){
+    public void addTuile(Tuile tl){
         tuiles.add(tl);
     }
 

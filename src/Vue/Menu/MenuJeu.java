@@ -18,13 +18,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class MeuPrincipal implements ActionListener {
+public class MenuJeu implements ActionListener {
     private JButton Commencer;
     private JLabel imageMenu;
 
     private JButton valider;
 
-    public MeuPrincipal() {
+    public MenuJeu() {
         Fenetre menu = new Fenetre("Menu");
         JPanel panel = new JPanel();
         menu.setContentPane(panel);
