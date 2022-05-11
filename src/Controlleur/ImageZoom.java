@@ -1,13 +1,16 @@
 package Controlleur;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
+import java.io.File;
 import java.io.IOException;
 
 public class ImageZoom {
-    public ImageZoom(){
+    public ImageZoom() throws IOException {
 /*
         JFrame frame = new JFrame();
         JPanel panel=new JPanel();
@@ -20,25 +23,25 @@ public class ImageZoom {
         JFrame f = new JFrame("Exemple JButton avec image");
 
         // Récupère l'image source
-    Image imgS = Toolkit.getDefaultToolkit().createImage("Images/Tuiles.png");
+    Image imgS = Toolkit.getDefaultToolkit().createImage("Images/Piece.png");
 
     // récupération image[0][0]
     Icon Image1 = new ImageIcon(Toolkit.getDefaultToolkit()
-            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(9, 10, 70, 70))));
+            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(19, 10, 70, 70))));
     JButton i1 = new JButton(Image1);
         i1.setBounds(100,0,70,70);
         f.add(i1);
 
     // récupération de l'image[1][0]
     Icon Image2 = new ImageIcon(Toolkit.getDefaultToolkit()
-            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(88, 10, 70, 70))));
+            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(98, 10, 70, 70))));
     JButton i2 = new JButton(Image2);
         i2.setBounds(200,0,70,70);
         f.add(i2);
 
     // récupération de l'image[2][0]
     Icon Image3 = new ImageIcon(Toolkit.getDefaultToolkit()
-            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(169, 10, 70, 70))));
+            .createImage(new FilteredImageSource(imgS.getSource(), new CropImageFilter(200, 10, 70, 70))));
     JButton i3 = new JButton(Image3);
         i3.setBounds(300,0,70,70);
         f.add(i3);
@@ -127,6 +130,29 @@ public class ImageZoom {
              JButton i15 = new JButton(Image15);
         i15.setBounds(300,400,70,70);
              f.add(i15);
+
+
+        // récupération de l'image[0][5]
+        BufferedImage imageSerpent = ImageIO.read(new File("Images/DeSerpentMer.png"));
+        Icon serpent = new ImageIcon(imageSerpent);
+        JButton sr = new JButton(serpent);
+        sr.setBounds(100,500,70,70);
+        f.add(sr);
+
+        // récupération de l'image[1][5]
+        BufferedImage imageRequin = ImageIO.read(new File("Images/DeRequin.png"));
+        Icon requin = new ImageIcon(imageRequin);
+        JButton rq = new JButton(requin);
+        rq.setBounds(200,500,70,70);
+        f.add(rq);
+
+        // récupération de l'image[2][5]
+        BufferedImage imageBaleine = ImageIO.read(new File("Images/DeBaleine.png"));
+        Icon baleine = new ImageIcon(imageBaleine);
+        JButton bl = new JButton(baleine);
+        bl.setBounds(300,500,70,70);
+        f.add(bl);
+
 
         f.setSize(800,600);
         f.setLayout(null);
