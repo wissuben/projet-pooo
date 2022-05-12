@@ -4,4 +4,5 @@ Version informatique du jeu de société The Island.
 * Othmane
 * Oumaima
 * Wissal
+* Brice
 * Adrien
