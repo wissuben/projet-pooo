@@ -14,6 +14,7 @@ import javax.management.modelmbean.ModelMBean;
 import javax.swing.ImageIcon;
 
 import Model.Piece;
+import Vue.Menu.TuileFond;
 
 public class Tuile extends Piece {
 	
@@ -28,6 +29,7 @@ public class Tuile extends Piece {
 	private int index;
 	private Polygon hexagon = null;
 	private Image Terrain;
+	private Image Effet;
 
 
 	public Tuile(int posX,int posY, int index) {
@@ -36,10 +38,18 @@ public class Tuile extends Piece {
     	this.index = index;
     }
 
-
-    public static void initTuiles() {	//Permet a chaque Tuile d'avoir un typeTuile
+	public static void initListTuiles() {
+		Tuile.initTabTuiles();
+		Tuile.initTypeTuiles();
+		Tuile.initEffetTuiles();
+		Tuile.setHexagone();
+		TuileFond.setImageTerrain();
+		TuileFond.setImageEffet();
+		Tuile.initVoisin();
+	}
+	
+    public static void initTypeTuiles() {	//Permet a chaque Tuile d'avoir un typeTuile
 		ArrayList<TypeTuile> randomTypeTuiles = TypeTuile.getRandomTuiles();
-    	Tuile.initTabTuiles();
     	int posX = 0,posY = 0;
     	int  k = 0;
     	for(Tuile tuileTmp : Tuile.listeTuile) {
@@ -248,6 +258,27 @@ public class Tuile extends Piece {
     	}
     }
     
+    public static void initEffetTuiles() {	//Permet de donner un effet a chaque tuiles.
+    	ArrayList<TuileEffet> randomEffetPlage = TuileEffet.getPlageEffet();
+    	ArrayList<TuileEffet> randomEffetForet = TuileEffet.getForetEffet();
+    	ArrayList<TuileEffet> randomEffetMontagne = TuileEffet.getMontagneEffet();
+    	int  i = 0, j = 0, k = 0;
+    	for(Tuile tuileTmp : Tuile.listeTuile) {
+    		if (tuileTmp.typeTuile == TypeTuile.PLAGE) {
+    			tuileTmp.effetTuile = randomEffetPlage.get(i);
+    			i++;
+    		}
+    		if (tuileTmp.typeTuile == TypeTuile.FORET) {
+    			tuileTmp.effetTuile = randomEffetForet.get(j);
+    			j++;
+    		}
+    		if (tuileTmp.typeTuile == TypeTuile.MONTAGNE) {
+    			tuileTmp.effetTuile = randomEffetMontagne.get(k);
+    			k++;
+    		}
+    	}
+    }
+    
     public static void setHexagone() {	// Permet au hexagone non vide d'avoir leurs coordonnées
     	int k=0;
     	Plateau.initHexagon();
@@ -281,47 +312,8 @@ public class Tuile extends Piece {
     	}
     }
     
-    public static void setImageTerrain() {	// Donne une image terrain au tuiles
-    	BufferedImage bufferedImage = null;
-    	Image foret = null, montagne = null, plage = null;
-		try {
-			bufferedImage = ImageIO.read(new File("Images/PiecePNG.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		foret = bufferedImage.getSubimage(200,200,100,100);
-		montagne = bufferedImage.getSubimage(100,200,100,100);
-		plage = bufferedImage.getSubimage(0,200,100,100);
-		for(Tuile tuileTmp : listeTuile) {
-			if(tuileTmp.typeTuile == TypeTuile.FORET) {
-				tuileTmp.Terrain = foret.getScaledInstance(74, 74, 0);
-			}
-			if(tuileTmp.typeTuile == TypeTuile.MONTAGNE) {
-				tuileTmp.Terrain = montagne.getScaledInstance(75, 74, 0);
-			}
-			if(tuileTmp.typeTuile == TypeTuile.PLAGE) {
-				tuileTmp.Terrain = plage.getScaledInstance(75, 74, 0);
-			}
-		}
-	}
-    
     public static void setImageEffet() {
     
-    }
-    
-    
-    public static void afficherTuile(Graphics2D g2d) {
-    	for(Tuile tuileTmp : listeTuile) {
-    		if( tuileTmp.getTypeTuile() == TypeTuile.FORET) {
-    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-35, tuileTmp.getHexagon().ypoints[0]-5,null);
-    		}
-    		if(tuileTmp.getTypeTuile() ==TypeTuile.MONTAGNE) {
-    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-37, tuileTmp.getHexagon().ypoints[0]-5,null);
-    		}
-			if(tuileTmp.getTypeTuile() ==TypeTuile.PLAGE ) {
-    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-38, tuileTmp.getHexagon().ypoints[0]-5,null);
-			}
-    	}
     }
 
     public static void initVoisin() {
@@ -452,6 +444,9 @@ public class Tuile extends Piece {
     	}
     }
 
+	public void setTerrain(Image terrain) {
+		Terrain = terrain;
+	}
 
 	public boolean isFaceUp() {
 		return faceUp;
@@ -464,6 +459,22 @@ public class Tuile extends Piece {
 
 	public void setFaceUp(boolean faceUp) {
 		this.faceUp = faceUp;
+	}
+
+	public TuileEffet getEffetTuile() {
+		return effetTuile;
+	}
+
+	public void setEffetTuile(TuileEffet effetTuile) {
+		this.effetTuile = effetTuile;
+	}
+
+	public Image getEffet() {
+		return Effet;
+	}
+
+	public void setEffet(Image effet) {
+		Effet = effet;
 	}
 
 }

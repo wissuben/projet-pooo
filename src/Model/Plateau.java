@@ -19,13 +19,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 
+import Controlleur.MouseListener;
+import Vue.Menu.TuileFond;
+
 public class Plateau extends JFrame{
 	public static ArrayList<Polygon> listHexagone = new ArrayList<Polygon>();
 	static int
 	posX = 0,
 	posY = 0,
-	imageX = (int)((int)1280/1.4),
-	imageY = (int)((int)1080/1.6);
+	imageX = (int)((int)1200/1.3),
+	imageY = (int)((int)720/1.04);
 	
 	public static void initPlateau() {
 		Plateau.initHexagon();
@@ -82,7 +85,7 @@ class DrawPlateau extends JPanel{		//Permet de dessiner les hexagone et leur ter
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Image image = bufferedImage.getSubimage(150, 100,950,900);
+		Image image = bufferedImage.getSubimage(100, 0,1000,720);
 		image = image.getScaledInstance((Plateau.imageX),(Plateau.imageY), Image.SCALE_SMOOTH);
 		g2d.drawImage(image,Plateau.posX,Plateau.posY,null);
 		g2d.setColor(Color.BLACK);
@@ -204,7 +207,7 @@ class DrawPlateau extends JPanel{		//Permet de dessiner les hexagone et leur ter
 				}
 			}
 		}
-		Tuile.afficherTuile(g2d);
+		TuileFond.afficherTuile(g2d);
 		g2d.dispose();
 	}
 }

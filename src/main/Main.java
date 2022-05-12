@@ -7,10 +7,12 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import Controlleur.MouseListener;
 import Model.Plateau;
 import Model.Tuile;
 import Vue.Menu.Fenetre;
 import Vue.Menu.FenetrePrincipale;
+import Vue.Menu.TuileFond;
 
 public class Main {
 
@@ -31,12 +33,9 @@ public class Main {
 
 	public Main() throws IOException {
 		initialize();
-		Tuile.initTuiles();
+		Tuile.initListTuiles();
 		Plateau.initPlateau();
 		Plateau.screenRender(frame);
-		Tuile.setHexagone();
-		Tuile.setImageTerrain();
-		Tuile.initVoisin();
 		for (Tuile tuile : Tuile.listeTuile) {
 			System.out.println("x:"+tuile.PositionX + "  y:" +tuile.PositionY +"  index:"+tuile.getIndex() +"  hexagon:"+tuile.getHexagon() +  "  type:"+ tuile.getTypeTuile() +  "	polygone :" + tuile.getHexagon() + "	Voisin : " + tuile.getVoisin());
 		}
