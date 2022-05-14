@@ -7,14 +7,28 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.management.modelmbean.ModelMBean;
 
 import Model.Tuile;
 import Model.TuileEffet;
 import Model.TypeTuile;
 
+/**
+ * <strong>TuileFond</strong>
+ * <p>
+ * Dessine les tuiles et attribue les images aux {@link Model.Tuile}
+ * </p>
+ *
+ * @author Adrien Taberner
+ */
 public class TuileFond {
 	
-	 public static void setImageTerrain() {	// Donne une image terrain au tuiles
+	 /**
+	 * <p>
+ 	 * Donne une {@link Image} à {@link Model.Tuile#Terrain}
+ 	 * </p>
+ 	 */
+ 	public static void setImageTerrain() {
 	    	BufferedImage bufferedImage = null;
 	    	Image foret = null, montagne = null, plage = null;
 			try {
@@ -39,7 +53,12 @@ public class TuileFond {
 		}
 	    
 
-	 public static void afficherTuile(Graphics2D g2d) {
+	 /**
+ 	 * Affiche les tuiles.
+ 	 *
+ 	 * @param g2d le contexte pour dessiner.
+ 	 */
+ 	public static void afficherTuile(Graphics2D g2d) {
 	    	for(Tuile tuileTmp : Tuile.listeTuile) {
 	    		if(tuileTmp.getTypeTuile()!= TypeTuile.VIDE || tuileTmp.getTypeTuile()!= TypeTuile.MER || tuileTmp.getTypeTuile()!= TypeTuile.ARRIVE) {
 		    		if(tuileTmp.isFaceUp() == true){
@@ -94,7 +113,12 @@ public class TuileFond {
 	    	}
 	 	}
 	 
-	 public static void setImageEffet() {
+ 	/**
+	 * <p>
+ 	 * Donne une {@link Image} à {@link Model.Tuile#Effet}
+ 	 * </p>
+ 	 */
+ 	public static void setImageEffet() {
 		 BufferedImage image = null;
 		 	BufferedImage baleineRouge = null, baleineVert = null, supprimeBaleine = null,
 	    		bateauVert = null, bateauRouge = null, dauphin = null,

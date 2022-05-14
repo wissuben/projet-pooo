@@ -6,7 +6,15 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Random;
 
+/**
+ * <strong>Enum TuileEffet.</strong>
+ * <p>
+ * Effet des differente tuiles au centre du plateau.
+ * </p>
+ * @author Adrien Taberner
+ */
 public enum TuileEffet {
+	
 	BALEINE_ROUGE,
 	REQUIN_ROUGE,
 	BATEAU_ROUGE,
@@ -19,7 +27,13 @@ public enum TuileEffet {
 	SUPPRIME_BALEINE,
 	TOURBILLON,
 	VOLCAN;
-
+	
+	/**
+	 * <p>
+	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#PLAGE}.
+	 * </p>
+	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
+	 */
 	public static ArrayList<TuileEffet> getPlageEffet() {
 		ArrayList<TuileEffet> randomTuiles = new ArrayList<TuileEffet>();
 		HashMap<TuileEffet,Integer> tuileDisponible = new HashMap<TuileEffet,Integer>();
@@ -49,6 +63,13 @@ public enum TuileEffet {
 		}while(NombrePlage > 0);
 		return randomTuiles;
 	}
+	
+	/**
+	 * <p>
+	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#FORET}.
+	 * </p>
+	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
+	 */
 	public static ArrayList<TuileEffet> getForetEffet() {
 		ArrayList<TuileEffet> randomTuiles = new ArrayList<TuileEffet>();
 		HashMap<TuileEffet,Integer> tuileDisponible = new HashMap<TuileEffet,Integer>();
@@ -79,6 +100,13 @@ public enum TuileEffet {
 		}while(NombreForet > 0);
 		return randomTuiles;
 	}
+	
+	/**
+	 * <p>
+	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#MONTAGNE}.
+	 * </p>
+	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
+	 */
 	public static ArrayList<TuileEffet> getMontagneEffet() {
 		ArrayList<TuileEffet> randomTuiles = new ArrayList<TuileEffet>();
 		HashMap<TuileEffet,Integer> tuileDisponible = new HashMap<TuileEffet,Integer>();
