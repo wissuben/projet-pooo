@@ -1,24 +1,42 @@
 package Vue.Menu;
-import java.awt.Image;
+import Controlleur.GetAction;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.*;
 
-import java.awt.Toolkit;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
 
-public class FenetrePrincipale {
+public class FenetrePrincipale implements ActionListener {
 	   	JFrame frame;
 	    int width;
 	    int height;
+	private JLabel lblTitre;
+	private JRadioButton rdbtn2;
+	private JLabel lblNombreJoueur;
+	private JRadioButton rdbtn4;
+	private JLabel lblPseudo;
+	private JTextField textFieldPseudo1;
+	private JTextField textFieldPseudo2;
+	private JTextField textFieldPseudo3;
+	private JButton btnLancer;
+	private JTextField textFieldPseudo4;
+	private JLabel lblJoueur1;
+	private JLabel lblJoueur2;
+	private JLabel lblJoueur3;
+	private JLabel lblJoueur4;
+	private JLabel lblAffichage1;
+	private JLabel lblAffichage2;
+	private JLabel lblAffichage3;
+	private JLabel lblAffichage4;
 
-	    public void init_fenetre() {
-	        this.width = 850;
-	        this.height = 600;
+	public void init_fenetre() {
+	        this.width = 1200;
+	        this.height = 720;
 	    }
 
 	    public void fenetre_menu() {
@@ -31,27 +49,33 @@ public class FenetrePrincipale {
 
 	        JLabel image = new JLabel(new ImageIcon("Images/backgroundmenu.png"));
 
-	        image.setBounds(0, 0, 850, 600);
+	        image.setBounds(100, 100, 1200, 720);
 	        this.frame.add(image);
 
-	        int decal = 50;
-	        int x = (850 / 2 - 200 / 2);
-	        int y = (600 / 2 - 40 / 2);
-
-	        b1.setBounds(x, y, 200, 40);
+	        b1.setBounds(500, 300, 200, 40);
+			b1.addActionListener(this);
 	        image.add(b1);
 
-	        b2.setBounds(x, y + decal, 200, 40);
-	        image.add(b2);
+	        b2.setBounds(500, 400 , 200, 40);
+			b2.addActionListener(new ActionListener()
+			{
+				private JFrame frame;
 
-	        b3.setBounds(x, y + 2 * decal, 200, 40);
+				public void actionPerformed(ActionEvent e)
+				{
+					Imageslider i = new Imageslider();
+				}
+			});
+
+			image.add(b2);
+
+	        b3.setBounds(500, 500, 200, 40);
 	        image.add(b3);
 
 	        this.frame.setResizable(false);
-	        this.frame.setSize(this.width, this.height);
+	        this.frame.setSize(1200, 720);
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
-
 	    }
 
 	    public void fenetre_regles() {
@@ -83,30 +107,27 @@ public class FenetrePrincipale {
 	        image.setBounds(0, 0, 850, 600);
 	        this.frame.add(image);
 
-	        int decal = 50;
-	        int x = (850 / 2 - 200 / 2);
-	        int y = (500 / 2 - 40 / 2);
 
-	        b1.setBounds(x, y, 200, 40);
+
+	        b1.setBounds(200, 100, 200, 40);
 	        image.add(b1);
 
-	        b2.setBounds(x, y + decal, 200, 40);
+	        b2.setBounds(200, 200, 200, 40);
 	        image.add(b2);
 
-	        b3.setBounds(20, 20, 50, 50);
+	        b3.setBounds(200, 300, 200, 40);
 	        image.add(b3);
 
-	        b4.setBounds(100, 100, 100, 100);
+	        b4.setBounds(200, 400, 200, 40);
 	        image.add(b4);
 
-	        b5.setBounds(300, 100, 100, 100);
+	        b5.setBounds(200, 500, 200, 40);
 	        image.add(b5);
 
 	        this.frame.setResizable(false);
-	        this.frame.setSize(this.width, this.height);
+	        this.frame.setSize(1200, 750);
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
-
 	    }
 
 	    public void fenetre_regles_generales() {
@@ -122,21 +143,18 @@ public class FenetrePrincipale {
 	        image.setBounds(0, 0, 850, 600);
 	        this.frame.add(image);
 
-	        int decal = 50;
-	        int x = (850 / 2 - 200 / 2);
-	        int y = (500 / 2 - 40 / 2);
 
-	        b1.setBounds(x, y, 200, 40);
+	        b1.setBounds(500, 300, 200, 40);
 	        image.add(b1);
 
-	        b2.setBounds(x, y + decal, 200, 40);
+	        b2.setBounds(500, 400, 200, 40);
 	        image.add(b2);
 
-	        b3.setBounds(10, 10, 100, 100);
+	        b3.setBounds(500, 500, 200, 40);
 	        image.add(b3);
 
 	        this.frame.setResizable(false);
-	        this.frame.setSize(this.width, this.height);
+	        this.frame.setSize(1200, 720);
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
 
@@ -146,10 +164,200 @@ public class FenetrePrincipale {
 	        this.frame.setTitle("CREDITS");
 
 	        this.frame.setResizable(false);
-	        this.frame.setSize(this.width, this.height);
+	        this.frame.setSize(1200, 720);
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
-
 	    }
+ 		public void fenetrePseudos(){
+			Fenetre menuJoueur = new Fenetre("MenuJoueur");
+			JPanel panell = new JPanel();
+			menuJoueur.setContentPane(panell);
+
+			panell.setBorder(new EmptyBorder(5, 5, 5, 5));
+			panell.setBackground(Color.lightGray);
+			panell.setLayout(new BorderLayout(0, 0));
+			panell.setLayout(null);
+
+			JLabel image = new JLabel(new ImageIcon("Images/Joueurs.png"));
+			image.setBounds(700,100,500,500);
+			panell.add(image);
+
+			lblTitre = new JLabel("THE ISLAND");
+			lblTitre.setForeground(Color.WHITE);
+			lblTitre.setFont(new Font("Noteworthy", Font.PLAIN, 26));
+			lblTitre.setBounds(350, 8, 299, 56);
+			panell.add(lblTitre);
+
+			rdbtn2 = new JRadioButton("2");
+			rdbtn2.setActionCommand("2");
+			rdbtn2.setForeground(Color.WHITE);
+			rdbtn2.setBounds(200, 130, 40, 23);
+			panell.add(rdbtn2);
+
+			rdbtn4 = new JRadioButton("4");
+			rdbtn4.setActionCommand("4");
+			rdbtn4.setForeground(Color.WHITE);
+			rdbtn4.setBounds(450, 130, 141, 23);
+			panell.add(rdbtn4);
+
+			//rdbtn2.setSelected(true);
+
+			lblNombreJoueur = new JLabel("Choisissez le nombre de joueurs :");
+			lblNombreJoueur.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+			lblNombreJoueur.setForeground(Color.WHITE);
+			lblNombreJoueur.setBounds(35, 60, 300, 60);
+			panell.add(lblNombreJoueur);
+
+			lblPseudo = new JLabel("Saissez vos pseudos joueurs :");
+			lblPseudo.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+			lblPseudo.setForeground(Color.WHITE);
+			lblPseudo.setBounds(35, 160, 262, 40);
+			panell.add(lblPseudo);
+
+			/**
+			 ** Pseudo1 **
+			 */
+			textFieldPseudo1 = new JTextField();
+			textFieldPseudo1.setColumns(10); //On lui donne un nombre de colonnes à afficher
+			textFieldPseudo1.setBounds(249, 210, 252, 36);
+			panell.add(textFieldPseudo1);
+
+			/**
+			 ** Pseudo2 **
+			 */
+			textFieldPseudo2 = new JTextField();
+			textFieldPseudo2.setColumns(10);
+			textFieldPseudo2.setBounds(249, 268, 252, 36);
+			panell.add(textFieldPseudo2);
+
+			/**
+			 ** Pseudo3 **
+			 */
+			textFieldPseudo3 = new JTextField();
+			textFieldPseudo3.setColumns(10);
+			textFieldPseudo3.setBounds(249, 334, 252, 36);
+			panell.add(textFieldPseudo3);
+
+			/**
+			 ** Pseudo4 **
+			 */
+			textFieldPseudo4 = new JTextField();
+			textFieldPseudo4.setColumns(10);
+			textFieldPseudo4.setBounds(249, 395, 252, 36);
+			panell.add(textFieldPseudo4);
+
+			/**
+			 ** Label joueurs **
+			 */
+			lblJoueur1 = new JLabel("Joueur 1 :");
+			lblJoueur1.setBounds(113, 202, 76, 39);
+			lblJoueur1.setForeground(Color.WHITE);
+			panell.add(lblJoueur1);
+
+			lblJoueur2 = new JLabel("Joueur 2 :");
+			lblJoueur2.setBounds(113, 259, 60, 40);
+			lblJoueur2.setForeground(Color.WHITE);
+			panell.add(lblJoueur2);
+
+			lblJoueur3 = new JLabel("Joueur 3 :");
+			lblJoueur3.setBounds(113, 325, 60, 36);
+			lblJoueur3.setForeground(Color.WHITE);
+			panell.add(lblJoueur3);
+
+			lblJoueur4 = new JLabel("Joueur 4 :");
+			lblJoueur4.setBounds(111, 386, 60, 36);
+			lblJoueur4.setForeground(Color.WHITE);
+			panell.add(lblJoueur4);
+
+			lblAffichage1 = new JLabel("");
+			lblAffichage1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+			lblAffichage1.setForeground(Color.WHITE);
+			lblAffichage1.setBounds(558, 214, 202, 15);
+			panell.add(lblAffichage1);
+
+			lblAffichage2 = new JLabel("");
+			lblAffichage2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+			lblAffichage2.setForeground(Color.WHITE);
+			lblAffichage2.setBounds(558, 272, 202, 15);
+			panell.add(lblAffichage2);
+
+			lblAffichage3 = new JLabel("");
+			lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+			lblAffichage3.setForeground(Color.WHITE);
+			lblAffichage3.setBounds(558, 336, 202, 15);
+			panell.add(lblAffichage3);
+
+			lblAffichage4 = new JLabel("");
+			lblAffichage4.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+			lblAffichage4.setForeground(Color.WHITE);
+			lblAffichage4.setBounds(558, 397, 202, 15);
+			panell.add(lblAffichage4);
+
+/*
+            textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+                @Override
+                public void changedUpdate(DocumentEvent e) {
+                    checkBtn();
+                }
+            });
+            btnLancer.setEnabled(false);
+            add(textFieldPseudo1);
+            add(btnLancer);
+*/
+			/**
+			 ** Button Lancer Jeu & ActionEvent **
+			 */
+			btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
+
+			btnLancer.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+			btnLancer.setBackground(Color.BLUE);
+			btnLancer.setForeground(Color.BLACK);
+			btnLancer.setBounds(300, 480, 236, 56);
+			panell.add(btnLancer);
+			menuJoueur.setVisible(true);
+		}
+
+	public JTextField getTextFieldPseudo1(){
+		return textFieldPseudo1;
 	}
+
+	public JTextField getTextFieldPseudo2(){
+		return textFieldPseudo2;
+	}
+	public JTextField getTextFieldPseudo3(){
+		return textFieldPseudo3;
+	}
+	public JTextField getTextFieldPseudo4(){
+		return textFieldPseudo4;
+	}
+
+	public JLabel getLabelPseudo(){
+		return lblAffichage1;
+	}
+	public JLabel getLabelPseudo2(){
+		return lblAffichage2;
+	}
+	public JLabel getLabelPseudo3(){
+		return lblAffichage3;
+	}
+	public JLabel getLabelPseudo4(){
+		return lblAffichage4;
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		FenetrePrincipale menu= new FenetrePrincipale();
+		menu.fenetrePseudos(); //affiche la fenetre de saisie des pseudos
+		this.frame.setVisible(false); // ferme la fenetre du menu
+	}
+}
 

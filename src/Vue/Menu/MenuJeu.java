@@ -67,7 +67,7 @@ public class MenuJeu implements ActionListener {
              */
             System.out.println("Vous avez cliqué sur valider.");
         }
-        new MenuJoueur();
+        new FenetrePrincipale();
     }
 
 }

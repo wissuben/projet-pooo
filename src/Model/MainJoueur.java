@@ -28,6 +28,7 @@ public class MainJoueur {
     public void initPionExporateur(CouleurExplorateur couleur) {
     	pionExplorateur = Explorateur.initJoueur_PionsExplorateur(couleur);
     }
+
     
     public Piece getTuile(int index){
         return  tuiles.get(index);
@@ -35,4 +36,6 @@ public class MainJoueur {
     public Piece retirerTuile(){
         return tuiles.remove(0);
     }
+
+
 }

@@ -33,6 +33,7 @@ public class frame {
     }
 
     public static void main(String args[]) {
-        new frame();
+        //new frame();
+        new FenetrePrincipale();
     }
 }

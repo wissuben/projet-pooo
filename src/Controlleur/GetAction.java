@@ -8,15 +8,15 @@
  * @author Oumaima HAIMAR.
  */
 package Controlleur;
-import Vue.Menu.MenuJoueur;
+import Vue.Menu.FenetrePrincipale;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class GetAction extends AbstractAction {
-    private MenuJoueur menuJoueur;
+    private FenetrePrincipale menuJoueur;
 
-    public GetAction(MenuJoueur menuJoueur, String texte){
+    public GetAction(FenetrePrincipale menuJoueur, String texte){
         super(texte);
         this.menuJoueur = menuJoueur;
     }
@@ -30,6 +30,7 @@ public class GetAction extends AbstractAction {
         menuJoueur.getLabelPseudo3().setText("Salut "+pseudo3+" ! ");
         String pseudo4 = menuJoueur.getTextFieldPseudo4().getText();
         menuJoueur.getLabelPseudo4().setText("Salut "+pseudo4+" ! ");
+
         //String nb = menuJoueur.getSelection().getActionCommand();
        // System.out.println("Le radio bouton sélectionné est: " +nb);
     }
