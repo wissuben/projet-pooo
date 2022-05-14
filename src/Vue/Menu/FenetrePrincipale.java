@@ -1,15 +1,20 @@
 package Vue.Menu;
 import Controlleur.GetAction;
+import Controlleur.RedimensionnerImage;
 
 import java.awt.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
+import java.io.File;
+import java.io.IOException;
 
 public class FenetrePrincipale implements ActionListener {
 	   	JFrame frame;
@@ -39,7 +44,7 @@ public class FenetrePrincipale implements ActionListener {
 	        this.height = 720;
 	    }
 
-	    public void fenetre_menu() {
+	    public void fenetre_menu() throws IOException {
 
 	        this.frame = new JFrame("MENU PRINCIPAL");
 
@@ -47,30 +52,36 @@ public class FenetrePrincipale implements ActionListener {
 	        JButton b2 = new JButton("Regles du jeu");
 	        JButton b3 = new JButton("Crédits");
 
-	        JLabel image = new JLabel(new ImageIcon("Images/backgroundmenu.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("Images/backgroundmenu.png"));
+			Image image = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
 
-	        image.setBounds(100, 100, 1200, 720);
-	        this.frame.add(image);
+			ImageIcon icon = new ImageIcon(image);
+
+			JLabel jLabel = new JLabel();
+			jLabel.setIcon(icon);
+	        this.frame.add(jLabel);
 
 	        b1.setBounds(500, 300, 200, 40);
 			b1.addActionListener(this);
-	        image.add(b1);
+	        jLabel.add(b1);
 
 	        b2.setBounds(500, 400 , 200, 40);
 			b2.addActionListener(new ActionListener()
 			{
-				private JFrame frame;
-
 				public void actionPerformed(ActionEvent e)
 				{
-					Imageslider i = new Imageslider();
+					//Imageslider i = new Imageslider();
+					try {
+						fenetre_regles_generales();
+					} catch (IOException ex) {
+						throw new RuntimeException(ex);
+					}
 				}
 			});
-
-			image.add(b2);
+			jLabel.add(b2);
 
 	        b3.setBounds(500, 500, 200, 40);
-	        image.add(b3);
+	        jLabel.add(b3);
 
 	        this.frame.setResizable(false);
 	        this.frame.setSize(1200, 720);
@@ -130,28 +141,45 @@ public class FenetrePrincipale implements ActionListener {
 	        this.frame.setVisible(true);
 	    }
 
-	    public void fenetre_regles_generales() {
+	    public void fenetre_regles_generales() throws IOException {
 
 	        this.frame = new JFrame("REGLES DU JEU");
 
 	        JLabel image = new JLabel(new ImageIcon("Images/backgroundregle.png"));
 
+			BufferedImage bufferedImage = ImageIO.read(new File("Images/backgroundregle.png"));
+			Image image2 = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
+
+			ImageIcon icon = new ImageIcon(image2);
+
+			JLabel jLabel = new JLabel();
+			jLabel.setIcon(icon);
+			this.frame.add(jLabel);
+
 	        JButton b1 = new JButton("Règles générale");
-	        JButton b2 = new JButton("Règles pièces");
+
+			b1.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					Imageslider i = new Imageslider();
+				}
+			});
+
+			JButton b2 = new JButton("Règles pièces");
 	        JButton b3 = new JButton("Retour");
 
-	        image.setBounds(0, 0, 850, 600);
-	        this.frame.add(image);
+	        this.frame.add(jLabel);
 
 
 	        b1.setBounds(500, 300, 200, 40);
-	        image.add(b1);
+	        jLabel.add(b1);
 
 	        b2.setBounds(500, 400, 200, 40);
-	        image.add(b2);
+	        jLabel.add(b2);
 
 	        b3.setBounds(500, 500, 200, 40);
-	        image.add(b3);
+	        jLabel.add(b3);
 
 	        this.frame.setResizable(false);
 	        this.frame.setSize(1200, 720);
@@ -168,7 +196,7 @@ public class FenetrePrincipale implements ActionListener {
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
 	    }
- 		public void fenetrePseudos(){
+ 		public void fenetrePseudos() throws IOException {
 			Fenetre menuJoueur = new Fenetre("MenuJoueur");
 			JPanel panell = new JPanel();
 			menuJoueur.setContentPane(panell);
@@ -178,9 +206,12 @@ public class FenetrePrincipale implements ActionListener {
 			panell.setLayout(new BorderLayout(0, 0));
 			panell.setLayout(null);
 
-			JLabel image = new JLabel(new ImageIcon("Images/Joueurs.png"));
-			image.setBounds(700,100,500,500);
-			panell.add(image);
+			BufferedImage bufferedImage = ImageIO.read(new File("Images/Joueurs.jpeg"));
+			Image image3 = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
+			ImageIcon icon = new ImageIcon(image3);
+			JLabel jLabel = new JLabel();
+			jLabel.setIcon(icon);
+			panell.add(jLabel);
 
 			lblTitre = new JLabel("THE ISLAND");
 			lblTitre.setForeground(Color.WHITE);
@@ -200,6 +231,55 @@ public class FenetrePrincipale implements ActionListener {
 			rdbtn4.setBounds(450, 130, 141, 23);
 			panell.add(rdbtn4);
 
+			ActionListener sliceActionListener = new ActionListener() {
+				public void actionPerformed(ActionEvent actionEvent) {
+					AbstractButton aButton = (AbstractButton) actionEvent.getSource();
+					System.out.println("Selected: " + aButton.getText());
+					if(aButton.getText() == "4"){
+
+					/**
+					 ** Pseudo3 **
+					 */
+					textFieldPseudo3 = new JTextField();
+					textFieldPseudo3.setColumns(10);
+					textFieldPseudo3.setBounds(249, 334, 252, 36);
+					panell.add(textFieldPseudo3);
+
+					/**
+					 ** Pseudo4 **
+					 */
+					textFieldPseudo4 = new JTextField();
+					textFieldPseudo4.setColumns(10);
+					textFieldPseudo4.setBounds(249, 395, 252, 36);
+					panell.add(textFieldPseudo4);
+
+					lblJoueur3 = new JLabel("Joueur 3 :");
+					lblJoueur3.setBounds(113, 325, 60, 36);
+					lblJoueur3.setForeground(Color.WHITE);
+					panell.add(lblJoueur3);
+
+					lblJoueur4 = new JLabel("Joueur 4 :");
+					lblJoueur4.setBounds(111, 386, 60, 36);
+					lblJoueur4.setForeground(Color.WHITE);
+					panell.add(lblJoueur4);
+
+					lblAffichage3 = new JLabel("");
+					lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+					lblAffichage3.setForeground(Color.WHITE);
+					lblAffichage3.setBounds(558, 336, 202, 15);
+					panell.add(lblAffichage3);
+
+					lblAffichage4 = new JLabel("");
+					lblAffichage4.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+					lblAffichage4.setForeground(Color.WHITE);
+					lblAffichage4.setBounds(558, 397, 202, 15);
+					panell.add(lblAffichage4);
+					}
+				}
+			};
+
+			rdbtn2.addActionListener(sliceActionListener);
+			rdbtn4.addActionListener(sliceActionListener);
 			//rdbtn2.setSelected(true);
 
 			lblNombreJoueur = new JLabel("Choisissez le nombre de joueurs :");
@@ -232,7 +312,7 @@ public class FenetrePrincipale implements ActionListener {
 
 			/**
 			 ** Pseudo3 **
-			 */
+
 			textFieldPseudo3 = new JTextField();
 			textFieldPseudo3.setColumns(10);
 			textFieldPseudo3.setBounds(249, 334, 252, 36);
@@ -240,7 +320,7 @@ public class FenetrePrincipale implements ActionListener {
 
 			/**
 			 ** Pseudo4 **
-			 */
+
 			textFieldPseudo4 = new JTextField();
 			textFieldPseudo4.setColumns(10);
 			textFieldPseudo4.setBounds(249, 395, 252, 36);
@@ -258,7 +338,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblJoueur2.setBounds(113, 259, 60, 40);
 			lblJoueur2.setForeground(Color.WHITE);
 			panell.add(lblJoueur2);
-
+/*
 			lblJoueur3 = new JLabel("Joueur 3 :");
 			lblJoueur3.setBounds(113, 325, 60, 36);
 			lblJoueur3.setForeground(Color.WHITE);
@@ -268,7 +348,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblJoueur4.setBounds(111, 386, 60, 36);
 			lblJoueur4.setForeground(Color.WHITE);
 			panell.add(lblJoueur4);
-
+*/
 			lblAffichage1 = new JLabel("");
 			lblAffichage1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 			lblAffichage1.setForeground(Color.WHITE);
@@ -280,7 +360,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblAffichage2.setForeground(Color.WHITE);
 			lblAffichage2.setBounds(558, 272, 202, 15);
 			panell.add(lblAffichage2);
-
+/*
 			lblAffichage3 = new JLabel("");
 			lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 			lblAffichage3.setForeground(Color.WHITE);
@@ -292,7 +372,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblAffichage4.setForeground(Color.WHITE);
 			lblAffichage4.setBounds(558, 397, 202, 15);
 			panell.add(lblAffichage4);
-
+*/
 /*
             textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
                 @Override
@@ -356,7 +436,11 @@ public class FenetrePrincipale implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		FenetrePrincipale menu= new FenetrePrincipale();
-		menu.fenetrePseudos(); //affiche la fenetre de saisie des pseudos
+		try {
+			menu.fenetrePseudos(); //affiche la fenetre de saisie des pseudos
+		} catch (IOException ex) {
+			throw new RuntimeException(ex);
+		}
 		this.frame.setVisible(false); // ferme la fenetre du menu
 	}
 }

@@ -23,6 +23,7 @@ class Imageslider extends JFrame  implements ActionListener
         p.add(b1);
         p.add(b2);
         add(p,BorderLayout.SOUTH);
+        p.setBackground(Color.cyan);
 
         b1.addActionListener(this);
         b2.addActionListener(this);
@@ -31,11 +32,12 @@ class Imageslider extends JFrame  implements ActionListener
         s[0] = new ImageIcon("Images/RèglesPièce.png");
         s[1] = new ImageIcon("Images/ReglesPiece2.png");
         s[2] = new ImageIcon("Images/ReglesGeneral.png");
+
         l = new JLabel("",JLabel.CENTER);
         add(l,BorderLayout.CENTER);
         l.setIcon(s[0]);
-
     }
+
     public  void actionPerformed(ActionEvent e)
     {
         if(e.getSource()==b1)
@@ -62,9 +64,5 @@ class Imageslider extends JFrame  implements ActionListener
                 l.setIcon(s[i]);
             }
         }
-    }
-    public static void main(String args[])
-    {
-        Imageslider obj = new Imageslider();
     }
 }
