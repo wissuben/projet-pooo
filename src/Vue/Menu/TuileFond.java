@@ -24,9 +24,7 @@ import Model.TypeTuile;
 public class TuileFond {
 	
 	 /**
-	 * <p>
  	 * Donne une {@link Image} à {@link Model.Tuile#Terrain}
- 	 * </p>
  	 */
  	public static void setImageTerrain() {
 	    	BufferedImage bufferedImage = null;
@@ -41,13 +39,13 @@ public class TuileFond {
 			plage = bufferedImage.getSubimage(0,200,100,100);
 			for(Tuile tuileTmp : Tuile.listeTuile) {
 				if(tuileTmp.getTypeTuile() == TypeTuile.FORET) {
-					tuileTmp.setTerrain(foret.getScaledInstance(84, 85, 0));
+					tuileTmp.setTerrain(foret.getScaledInstance(91, 91, 0));
 				}
 				if(tuileTmp.getTypeTuile() == TypeTuile.MONTAGNE) {
-					tuileTmp.setTerrain(montagne.getScaledInstance(83, 84, 0));
+					tuileTmp.setTerrain(montagne.getScaledInstance(91, 91, 0));
 				}
 				if(tuileTmp.getTypeTuile() == TypeTuile.PLAGE) {
-					tuileTmp.setTerrain(plage.getScaledInstance(85, 84, 0));
+					tuileTmp.setTerrain(plage.getScaledInstance(91, 91, 0));
 				}
 			}
 		}
@@ -60,53 +58,56 @@ public class TuileFond {
  	 */
  	public static void afficherTuile(Graphics2D g2d) {
 	    	for(Tuile tuileTmp : Tuile.listeTuile) {
-	    		if(tuileTmp.getTypeTuile()!= TypeTuile.VIDE || tuileTmp.getTypeTuile()!= TypeTuile.MER || tuileTmp.getTypeTuile()!= TypeTuile.ARRIVE) {
-		    		if(tuileTmp.isFaceUp() == true){
+	    		if(tuileTmp.getTypeTuile()!= TypeTuile.VIDE || tuileTmp.getTypeTuile()!= TypeTuile.ARRIVE) {
+		    		if(tuileTmp.getTypeTuile() == TypeTuile.MER) {
+		    			tuileTmp.setTerrain(null);
+		    		}
+		    		else if(tuileTmp.isFaceUp() == true){
 			    		if( tuileTmp.getTypeTuile() == TypeTuile.FORET) {
-			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-40, tuileTmp.getHexagon().ypoints[0]-6,null);
+			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-43, tuileTmp.getHexagon().ypoints[0]-7,null);
 			    		}
 			    		if(tuileTmp.getTypeTuile() ==TypeTuile.MONTAGNE) {
-			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-41, tuileTmp.getHexagon().ypoints[0]-6,null);
+			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-45, tuileTmp.getHexagon().ypoints[0]-7,null);
 			    		}
 						if(tuileTmp.getTypeTuile() ==TypeTuile.PLAGE ) {
-			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-6,null);
+			    			g2d.drawImage(tuileTmp.getTerrain(), tuileTmp.getHexagon().xpoints[0]-47, tuileTmp.getHexagon().ypoints[0]-7,null);
 						}
 		    		}else {
 		    			if(tuileTmp.getEffetTuile() == TuileEffet.BALEINE_ROUGE) {
-		    				g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+		    				g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.BALEINE_VERT) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.SUPPRIME_BALEINE) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.BATEAU_VERT) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.BATEAU_ROUGE) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.DAUPHIN) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.SERPENT) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.REQUIN_ROUGE) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.REQUIN_VERT) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);					
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.SUPPRIME_REQUIN) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);;
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.TOURBILLON) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);					
 						}
 						if(tuileTmp.getEffetTuile() == TuileEffet.VOLCAN) {
-							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-44, tuileTmp.getHexagon().ypoints[0]-16,null);
+							g2d.drawImage(tuileTmp.getEffet(),tuileTmp.getHexagon().xpoints[0]-49, tuileTmp.getHexagon().ypoints[0]-19,null);						
 						}
 		    		}
 	    		}
@@ -114,9 +115,7 @@ public class TuileFond {
 	 	}
 	 
  	/**
-	 * <p>
- 	 * Donne une {@link Image} à {@link Model.Tuile#Effet}
- 	 * </p>
+ 	 * Donne une {@link Image} à {@link Model.Tuile#Effet}.
  	 */
  	public static void setImageEffet() {
 		 BufferedImage image = null;
@@ -161,40 +160,40 @@ public class TuileFond {
 			for(Tuile tuileTmp : Tuile.listeTuile) {
 				if(tuileTmp.getTypeTuile()!= TypeTuile.VIDE || tuileTmp.getTypeTuile()!= TypeTuile.MER || tuileTmp.getTypeTuile()!= TypeTuile.ARRIVE) {
 					if(tuileTmp.getEffetTuile() == TuileEffet.BALEINE_ROUGE) {
-						tuileTmp.setEffet(baleineRougeI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(baleineRougeI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.BALEINE_VERT) {
-						tuileTmp.setEffet(baleineVertI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(baleineVertI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.SUPPRIME_BALEINE) {
-						tuileTmp.setEffet(supprimeBaleineI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(supprimeBaleineI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.BATEAU_VERT) {
-						tuileTmp.setEffet(bateauVertI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(bateauVertI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.BATEAU_ROUGE) {
-						tuileTmp.setEffet(bateauRougeI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(bateauRougeI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.DAUPHIN) {
-						tuileTmp.setEffet(dauphinI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(dauphinI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.SERPENT) {
-						tuileTmp.setEffet(serpentI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(serpentI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.REQUIN_ROUGE) {
-						tuileTmp.setEffet(requinRougeI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(requinRougeI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.REQUIN_VERT) {
-						tuileTmp.setEffet(requinVertI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(requinVertI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.SUPPRIME_REQUIN) {
-						tuileTmp.setEffet(supprimeRequinI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(supprimeRequinI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.TOURBILLON) {
-						tuileTmp.setEffet(tourbillonI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(tourbillonI.getScaledInstance(100,100, 0));
 					}
 					if(tuileTmp.getEffetTuile() == TuileEffet.VOLCAN) {
-						tuileTmp.setEffet(volcanI.getScaledInstance(90,90, 0));
+						tuileTmp.setEffet(volcanI.getScaledInstance(100,100, 0));
 					}
 				}
 			}

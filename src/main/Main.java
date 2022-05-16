@@ -34,8 +34,8 @@ public class Main {
 	public Main() throws IOException {
 		initialize();
 		Tuile.initListTuiles();
-		Plateau.initPlateau();
-		Plateau.screenRender(frame);
+		Plateau.initPlateau(frame);
+		Plateau.afficherPlateau();
 		for (Tuile tuile : Tuile.listeTuile) {
 			System.out.println("x:"+tuile.PositionX + "  y:" +tuile.PositionY +"  index:"+tuile.getIndex() +"  hexagon:"+tuile.getHexagon() +  "  type:"+ tuile.getTypeTuile() +  "	polygone :" + tuile.getHexagon() + "	Voisin : " + tuile.getVoisin());
 		}

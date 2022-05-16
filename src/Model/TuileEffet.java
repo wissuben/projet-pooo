@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import java.util.Random;
 
 /**
- * <strong>Enum TuileEffet.</strong>
+ * <strong>Enumeration des effets pour les tuiles.</strong>
  * <p>
  * Effet des differente tuiles au centre du plateau.
  * </p>
@@ -29,9 +29,9 @@ public enum TuileEffet {
 	VOLCAN;
 	
 	/**
-	 * <p>
+	 * 
 	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#PLAGE}.
-	 * </p>
+	 * 
 	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
 	 */
 	public static ArrayList<TuileEffet> getPlageEffet() {
@@ -65,9 +65,8 @@ public enum TuileEffet {
 	}
 	
 	/**
-	 * <p>
 	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#FORET}.
-	 * </p>
+	 * 
 	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
 	 */
 	public static ArrayList<TuileEffet> getForetEffet() {
@@ -102,9 +101,8 @@ public enum TuileEffet {
 	}
 	
 	/**
-	 * <p>
 	 * Crée une liste d'effet pour les tuiles de type {@link Model.TypeTuile#MONTAGNE}.
-	 * </p>
+	 * 
 	 * @return Une liste aléatoire de {@link Model.TuileEffet}.
 	 */
 	public static ArrayList<TuileEffet> getMontagneEffet() {
