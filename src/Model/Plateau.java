@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Polygon;
 import java.awt.event.MouseEvent;
@@ -24,17 +25,19 @@ import Vue.Menu.TuileFond;
 
 public class Plateau extends JFrame{
 	public static ArrayList<Polygon> listHexagone = new ArrayList<Polygon>();
+	public static JFrame main_frame= null;
 	static int
 	posX = 0,
 	posY = 0,
-	imageX = (int)((int)1200/1.3),
-	imageY = (int)((int)720/1.04);
+	imageX = (int)((int)1200/1),
+	imageY = (int)((int)720/1);
 	
-	public static void initPlateau() {
+	public static void initPlateau(JFrame main_frame) {
 		Plateau.initHexagon();
+		Plateau.main_frame = main_frame;
 	}
 	
-	public static void screenRender(JFrame main_frame) throws IOException  {;
+	public static void afficherPlateau() throws IOException {
 		JPanel fond = new DrawPlateau();
 		fond.addMouseListener(new MouseListener(main_frame));
 		main_frame.add(fond);
@@ -46,17 +49,17 @@ public class Plateau extends JFrame{
 		int ligne[] = {7,10,11,10,11,12,11,12,11,10,11,10,7};
 		int positionCorrect[] = {9,11,11,11,12,12,12,12,11,11,11,9,11};
 		int colonne = 13;
-		int Xhexagon[] = {25,50,50,25,0,0}; 
-		int Yhexagon[] = {0,14,43,57,43,14};
+		int Xhexagon[] = {27,54,54,27,0,0}; 
+		int Yhexagon[] = {0,15,47,62,47,15};
 		Polygon hexagon = new Polygon(Xhexagon,Yhexagon,6);
-		hexagon.translate(Plateau.posX + 290,Plateau.posY + 60);
+		hexagon.translate(Plateau.posX + 415,Plateau.posY + 40);
 		for (j = 0; j < colonne; j++) {
 			for (i = 0; i < ligne[j]; i++) {
 				Plateau.listHexagone.add(new Polygon(hexagon.xpoints, hexagon.ypoints, 6));
-				hexagon.translate(50,0);
+				hexagon.translate(54,0);
 			}
-			hexagon.translate(-50*positionCorrect[j],0);
-			hexagon.translate(25,43);
+			hexagon.translate(-54*positionCorrect[j],0);
+			hexagon.translate(27,47);
 		}
 	}	
 }
@@ -85,7 +88,7 @@ class DrawPlateau extends JPanel{		//Permet de dessiner les hexagone et leur ter
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Image image = bufferedImage.getSubimage(100, 0,1000,720);
+		Image image = bufferedImage.getSubimage(0, 0,1200,720);
 		image = image.getScaledInstance((Plateau.imageX),(Plateau.imageY), Image.SCALE_SMOOTH);
 		g2d.drawImage(image,Plateau.posX,Plateau.posY,null);
 		g2d.setColor(Color.BLACK);

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
+import java.awt.Window.Type;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -17,9 +18,9 @@ import Model.Piece;
 import Vue.Menu.TuileFond;
 
 /**
- * <strong>Tuile</strong>
+ * <strong>La classe qui nous permet de gérer les tuiles</strong>
  * <p>
- * Représente une case sur le plateau.
+ * Représente une case sur le plateau, avec coordonné, images et effet.
  * </p>
  *
  * @author Adrien Taberner
@@ -60,7 +61,7 @@ public class Tuile extends Piece {
 	private Image Effet;
 
 	/**
-	 * Instancie une nouvelle Tuile.
+	 * Instancie une nouvelle Tuile avec sa position dans le plateau et sont index.
 	 *
 	 * @param posX  Position X sur le tableau.
 	 * @param posY  Position Y sur le tableau.
@@ -73,9 +74,7 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
-	 * Permets d'initialiser la liste des tuiles du jeu.
-	 * </p>
+	 * Permets d'initialiser la liste des tuiles du jeu {@link Model.Tuile#listeTuile}.
 	 */
 	public static void initListTuiles() {
 		Tuile.initTabTuiles();
@@ -88,9 +87,7 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
 	 * Donne un {@link TypeTuile} à toutes les tuiles de la liste.
-	 * </p>
 	 */
 	private static void initTypeTuiles() {
 		ArrayList<TypeTuile> randomTypeTuiles = TypeTuile.getRandomTuiles();
@@ -305,9 +302,7 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
 	 * Permets de donner un effet {@link TuileEffet} à chaque tuile de {@link Model.Tuile#listeTuile}.
-	 * </p>
 	 */
 	private static void initEffetTuiles() {
 		ArrayList<TuileEffet> randomEffetPlage = TuileEffet.getPlageEffet();
@@ -331,10 +326,8 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
 	 * Attribue aux tuiles non vides de la liste tuiles d'avoir un {@link Polygon}.
 	 * Les tuiles ont donc leur position sur le plateau. 
-	 * </p>
 	 */
 	private static void setHexagone() {
 		int k = 0;
@@ -348,10 +341,8 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
 	 * Fonction pour créer {@link Model.Tuile#tuliesTab} qui sert à repérer les tuiles 
 	 * et leur position sur le plateau.
-	 * </p>
 	 */
 	private static void initTabTuiles() { 
 		int i = 0, j = 0;
@@ -376,9 +367,7 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * <p>
 	 * Valorise la liste des {@link Model.Tuile#voisin} pour chaque tuile.
-	 * </p>
 	 */
 	private static void initVoisin() {
 		int posX, posY;
@@ -490,9 +479,9 @@ public class Tuile extends Piece {
 	public Image getTerrain() {
 		return Terrain;
 	}
-
+	
 	/**
-	 * Gets the hexagon.
+	 * Permet d'obtenir l'emplacement de la tuiles.
 	 *
 	 * @return the hexagon
 	 */
@@ -528,9 +517,8 @@ public class Tuile extends Piece {
 	}
 
 	/**
-	 * Gets the voisin.
-	 *
-	 * @return the voisin
+	 * Retourne tous les voisin d'une tuiles.
+	 * @return la liste des voisins.
 	 */
 	public List<Tuile> getVoisin() {
 		return voisin;
@@ -538,8 +526,7 @@ public class Tuile extends Piece {
 
 	/**
 	 * Retirer tuile.
-	 *
-	 * @param index the index
+	 * @param index l'index dans la liste globale
 	 */
 	public static void RetirerTuile(int index) {
 		Tuile tuileTmp;
@@ -552,7 +539,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Sets the terrain.
-	 *
 	 * @param terrain the new terrain
 	 */
 	public void setTerrain(Image terrain) {
@@ -561,7 +547,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Checks if is face up.
-	 *
 	 * @return true, if is face up
 	 */
 	public boolean isFaceUp() {
@@ -570,7 +555,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Sets the type tuile.
-	 *
 	 * @param typeTuile the new type tuile
 	 */
 	public void setTypeTuile(TypeTuile typeTuile) {
@@ -579,7 +563,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Sets the face up.
-	 *
 	 * @param faceUp the new face up
 	 */
 	public void setFaceUp(boolean faceUp) {
@@ -588,7 +571,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Gets the effet tuile.
-	 *
 	 * @return the effet tuile
 	 */
 	public TuileEffet getEffetTuile() {
@@ -597,7 +579,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Sets the effet tuile.
-	 *
 	 * @param effetTuile the new effet tuile
 	 */
 	public void setEffetTuile(TuileEffet effetTuile) {
@@ -606,7 +587,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Gets the effet.
-	 *
 	 * @return the effet
 	 */
 	public Image getEffet() {
@@ -615,7 +595,6 @@ public class Tuile extends Piece {
 
 	/**
 	 * Sets the effet.
-	 *
 	 * @param effet the new effet
 	 */
 	public void setEffet(Image effet) {

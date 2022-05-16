@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.management.modelmbean.ModelMBean;
 
 /**
- * <strong>Enum TypeTuile </strong>
+ * <strong>Enumeration des type tuile du plateau</strong>
  * <p>
  * Représente le type de la {@link Model.Tuile}. 
  * </p>
@@ -23,9 +23,8 @@ public enum TypeTuile {
     ARRIVE;
 
 	/**
-	 * <p>
 	 * Crée une liste de {@link Model.TypeTuile} pour les tuiles.
-	 * </p>
+	 * 
 	 * @return Une liste aléatoire de {@link Model.TypeTuile}.
 	 */
 	public static ArrayList<TypeTuile> getRandomTuiles() {
