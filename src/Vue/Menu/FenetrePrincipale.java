@@ -70,6 +70,7 @@ public class FenetrePrincipale implements ActionListener {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
+					frame.setVisible(false);
 					//Imageslider i = new Imageslider();
 					try {
 						fenetre_regles_generales();
@@ -78,6 +79,7 @@ public class FenetrePrincipale implements ActionListener {
 					}
 				}
 			});
+
 			jLabel.add(b2);
 
 	        b3.setBounds(500, 500, 200, 40);
@@ -162,6 +164,7 @@ public class FenetrePrincipale implements ActionListener {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
+					frame.setVisible(false);
 					Imageslider i = new Imageslider();
 				}
 			});

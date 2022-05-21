@@ -23,15 +23,18 @@ class Imageslider extends JFrame  implements ActionListener
         p.add(b1);
         p.add(b2);
         add(p,BorderLayout.SOUTH);
-        p.setBackground(Color.cyan);
+        p.setBackground(Color.green);
 
         b1.addActionListener(this);
         b2.addActionListener(this);
 
-        s = new ImageIcon[3];
-        s[0] = new ImageIcon("Images/RèglesPièce.png");
-        s[1] = new ImageIcon("Images/ReglesPiece2.png");
-        s[2] = new ImageIcon("Images/ReglesGeneral.png");
+        s = new ImageIcon[5];
+        s[0] = new ImageIcon("Images/Reglegeneral.png");
+        s[1] = new ImageIcon("Images/RegleExplo.png");
+        s[2] = new ImageIcon("Images/RegleTuileForet.png");
+        s[3] = new ImageIcon("Images/RegleTuilePlage.png");
+        s[4] = new ImageIcon("Images/RegleTuileMontagne.png");
+
 
         l = new JLabel("",JLabel.CENTER);
         add(l,BorderLayout.CENTER);
