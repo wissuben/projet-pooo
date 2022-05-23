@@ -238,45 +238,12 @@ public class FenetrePrincipale implements ActionListener {
 				public void actionPerformed(ActionEvent actionEvent) {
 					AbstractButton aButton = (AbstractButton) actionEvent.getSource();
 					System.out.println("Selected: " + aButton.getText());
-					if(aButton.getText() == "4"){
-
-					/**
-					 ** Pseudo3 **
-					 */
-					textFieldPseudo3 = new JTextField();
-					textFieldPseudo3.setColumns(10);
-					textFieldPseudo3.setBounds(249, 334, 252, 36);
-					panell.add(textFieldPseudo3);
-
-					/**
-					 ** Pseudo4 **
-					 */
-					textFieldPseudo4 = new JTextField();
-					textFieldPseudo4.setColumns(10);
-					textFieldPseudo4.setBounds(249, 395, 252, 36);
-					panell.add(textFieldPseudo4);
-
-					lblJoueur3 = new JLabel("Joueur 3 :");
-					lblJoueur3.setBounds(113, 325, 60, 36);
-					lblJoueur3.setForeground(Color.WHITE);
-					panell.add(lblJoueur3);
-
-					lblJoueur4 = new JLabel("Joueur 4 :");
-					lblJoueur4.setBounds(111, 386, 60, 36);
-					lblJoueur4.setForeground(Color.WHITE);
-					panell.add(lblJoueur4);
-
-					lblAffichage3 = new JLabel("");
-					lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-					lblAffichage3.setForeground(Color.WHITE);
-					lblAffichage3.setBounds(558, 336, 202, 15);
-					panell.add(lblAffichage3);
-
-					lblAffichage4 = new JLabel("");
-					lblAffichage4.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-					lblAffichage4.setForeground(Color.WHITE);
-					lblAffichage4.setBounds(558, 397, 202, 15);
-					panell.add(lblAffichage4);
+					if(aButton.getText() == "2"){
+						System.out.println("deuuux");
+						panell.remove(textFieldPseudo4);
+						panell.remove(textFieldPseudo3);
+						panell.remove(lblAffichage3);
+						panell.remove(lblAffichage4);
 					}
 				}
 			};
@@ -315,7 +282,7 @@ public class FenetrePrincipale implements ActionListener {
 
 			/**
 			 ** Pseudo3 **
-
+			*/
 			textFieldPseudo3 = new JTextField();
 			textFieldPseudo3.setColumns(10);
 			textFieldPseudo3.setBounds(249, 334, 252, 36);
@@ -323,7 +290,7 @@ public class FenetrePrincipale implements ActionListener {
 
 			/**
 			 ** Pseudo4 **
-
+			*/
 			textFieldPseudo4 = new JTextField();
 			textFieldPseudo4.setColumns(10);
 			textFieldPseudo4.setBounds(249, 395, 252, 36);
@@ -341,7 +308,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblJoueur2.setBounds(113, 259, 60, 40);
 			lblJoueur2.setForeground(Color.WHITE);
 			panell.add(lblJoueur2);
-/*
+
 			lblJoueur3 = new JLabel("Joueur 3 :");
 			lblJoueur3.setBounds(113, 325, 60, 36);
 			lblJoueur3.setForeground(Color.WHITE);
@@ -351,7 +318,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblJoueur4.setBounds(111, 386, 60, 36);
 			lblJoueur4.setForeground(Color.WHITE);
 			panell.add(lblJoueur4);
-*/
+
 			lblAffichage1 = new JLabel("");
 			lblAffichage1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 			lblAffichage1.setForeground(Color.WHITE);
@@ -363,7 +330,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblAffichage2.setForeground(Color.WHITE);
 			lblAffichage2.setBounds(558, 272, 202, 15);
 			panell.add(lblAffichage2);
-/*
+
 			lblAffichage3 = new JLabel("");
 			lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 			lblAffichage3.setForeground(Color.WHITE);
@@ -375,7 +342,7 @@ public class FenetrePrincipale implements ActionListener {
 			lblAffichage4.setForeground(Color.WHITE);
 			lblAffichage4.setBounds(558, 397, 202, 15);
 			panell.add(lblAffichage4);
-*/
+
 /*
             textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
                 @Override
