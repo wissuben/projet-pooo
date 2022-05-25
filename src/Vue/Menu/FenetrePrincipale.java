@@ -200,180 +200,177 @@ public class FenetrePrincipale implements ActionListener {
 	        this.frame.setVisible(true);
 	    }
  		public void fenetrePseudos() throws IOException {
-			Fenetre menuJoueur = new Fenetre("MenuJoueur");
-			JPanel panell = new JPanel();
-			menuJoueur.setContentPane(panell);
+			this.frame = new Fenetre("MenuJoueur");
+			//JPanel panell = new JPanel();
+			//menuJoueur.setContentPane(panell);
 
+			BufferedImage bufferedImage = ImageIO.read(new File("Images/background1.png"));
+			Image image = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
+
+			ImageIcon icon = new ImageIcon(image);
+
+			JLabel jLabel = new JLabel();
+			jLabel.setIcon(icon);
+			this.frame.add(jLabel);
+
+/*
 			panell.setBorder(new EmptyBorder(5, 5, 5, 5));
 			panell.setBackground(Color.lightGray);
 			panell.setLayout(new BorderLayout(0, 0));
-			panell.setLayout(null);
+			panell.setLayout(null); */
 
-			BufferedImage bufferedImage = ImageIO.read(new File("Images/Joueurs.jpeg"));
-			Image image3 = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
-			ImageIcon icon = new ImageIcon(image3);
-			JLabel jLabel = new JLabel();
-			jLabel.setIcon(icon);
-			panell.add(jLabel);
 
 			lblTitre = new JLabel("THE ISLAND");
-			lblTitre.setForeground(Color.WHITE);
+			lblTitre.setForeground(Color.black);
 			lblTitre.setFont(new Font("Noteworthy", Font.PLAIN, 26));
-			lblTitre.setBounds(350, 8, 299, 56);
-			panell.add(lblTitre);
+			lblTitre.setBounds(500, 20, 299, 56);
+			jLabel.add(lblTitre);
 
-			rdbtn2 = new JRadioButton("2");
+			rdbtn2 = new JRadioButton("2 Joueurs");
 			rdbtn2.setActionCommand("2");
-			rdbtn2.setForeground(Color.WHITE);
-			rdbtn2.setBounds(200, 130, 40, 23);
-			panell.add(rdbtn2);
+			rdbtn2.setForeground(Color.black);
+			rdbtn2.setBounds(320, 200, 140, 23);
+			jLabel.add(rdbtn2);
 
-			rdbtn4 = new JRadioButton("4");
+			rdbtn4 = new JRadioButton("4 Joueurs");
 			rdbtn4.setActionCommand("4");
-			rdbtn4.setForeground(Color.WHITE);
-			rdbtn4.setBounds(450, 130, 141, 23);
-			panell.add(rdbtn4);
+			rdbtn4.setForeground(Color.black);
+			rdbtn4.setBounds(570, 200, 141, 23);
+			jLabel.add(rdbtn4);
 
 			ActionListener sliceActionListener = new ActionListener() {
 				public void actionPerformed(ActionEvent actionEvent) {
 					AbstractButton aButton = (AbstractButton) actionEvent.getSource();
 					System.out.println("Selected: " + aButton.getText());
-					if(aButton.getText() == "2"){
-						System.out.println("deuuux");
-						panell.remove(textFieldPseudo4);
-						panell.remove(textFieldPseudo3);
-						panell.remove(lblAffichage3);
-						panell.remove(lblAffichage4);
+					if(aButton.getText() == "2 Joueurs"){
+						//textFieldPseudo3.setBackground(Color.gray);
+						textFieldPseudo4.setBackground(Color.lightGray);
+						textFieldPseudo3.setBackground(Color.lightGray);
+						textFieldPseudo3.setEnabled(false);
+						textFieldPseudo4.setEnabled(false);
+						jLabel.remove(lblAffichage3);
+						jLabel.remove(lblAffichage4);
+						rdbtn4.setSelected(false);
+					}else{
+						textFieldPseudo4.setBackground(Color.white);
+						textFieldPseudo3.setBackground(Color.white);
+						textFieldPseudo3.setEnabled(true);
+						textFieldPseudo4.setEnabled(true);
+						jLabel.add(lblAffichage3);
+						jLabel.add(lblAffichage4);
+						rdbtn2.setSelected(false);
 					}
 				}
 			};
 
 			rdbtn2.addActionListener(sliceActionListener);
 			rdbtn4.addActionListener(sliceActionListener);
-			//rdbtn2.setSelected(true);
 
 			lblNombreJoueur = new JLabel("Choisissez le nombre de joueurs :");
 			lblNombreJoueur.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-			lblNombreJoueur.setForeground(Color.WHITE);
-			lblNombreJoueur.setBounds(35, 60, 300, 60);
-			panell.add(lblNombreJoueur);
+			lblNombreJoueur.setForeground(Color.black);
+			lblNombreJoueur.setBounds(150, 140, 300, 60);
+			jLabel.add(lblNombreJoueur);
 
-			lblPseudo = new JLabel("Saissez vos pseudos joueurs :");
+			lblPseudo = new JLabel("Saisissez vos pseudos joueurs :");
 			lblPseudo.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-			lblPseudo.setForeground(Color.WHITE);
-			lblPseudo.setBounds(35, 160, 262, 40);
-			panell.add(lblPseudo);
+			lblPseudo.setForeground(Color.black);
+			lblPseudo.setBounds(150, 240, 302, 60);
+			jLabel.add(lblPseudo);
 
 			/**
 			 ** Pseudo1 **
 			 */
 			textFieldPseudo1 = new JTextField();
 			textFieldPseudo1.setColumns(10); //On lui donne un nombre de colonnes à afficher
-			textFieldPseudo1.setBounds(249, 210, 252, 36);
-			panell.add(textFieldPseudo1);
+			textFieldPseudo1.setBounds(300, 280, 252, 36);
+			jLabel.add(textFieldPseudo1);
 
 			/**
 			 ** Pseudo2 **
 			 */
 			textFieldPseudo2 = new JTextField();
 			textFieldPseudo2.setColumns(10);
-			textFieldPseudo2.setBounds(249, 268, 252, 36);
-			panell.add(textFieldPseudo2);
+			textFieldPseudo2.setBounds(300, 338, 252, 36);
+			jLabel.add(textFieldPseudo2);
 
 			/**
 			 ** Pseudo3 **
 			*/
 			textFieldPseudo3 = new JTextField();
 			textFieldPseudo3.setColumns(10);
-			textFieldPseudo3.setBounds(249, 334, 252, 36);
-			panell.add(textFieldPseudo3);
+			textFieldPseudo3.setBounds(300, 404, 252, 36);
+			jLabel.add(textFieldPseudo3);
 
 			/**
 			 ** Pseudo4 **
 			*/
 			textFieldPseudo4 = new JTextField();
 			textFieldPseudo4.setColumns(10);
-			textFieldPseudo4.setBounds(249, 395, 252, 36);
-			panell.add(textFieldPseudo4);
+			textFieldPseudo4.setBounds(300, 465, 252, 36);
+			jLabel.add(textFieldPseudo4);
 
 			/**
 			 ** Label joueurs **
 			 */
 			lblJoueur1 = new JLabel("Joueur 1 :");
-			lblJoueur1.setBounds(113, 202, 76, 39);
-			lblJoueur1.setForeground(Color.WHITE);
-			panell.add(lblJoueur1);
+			lblJoueur1.setBounds(170, 282, 76, 39);
+			lblJoueur1.setForeground(Color.black);
+			jLabel.add(lblJoueur1);
 
 			lblJoueur2 = new JLabel("Joueur 2 :");
-			lblJoueur2.setBounds(113, 259, 60, 40);
-			lblJoueur2.setForeground(Color.WHITE);
-			panell.add(lblJoueur2);
+			lblJoueur2.setBounds(170, 339, 60, 40);
+			lblJoueur2.setForeground(Color.black);
+			jLabel.add(lblJoueur2);
 
 			lblJoueur3 = new JLabel("Joueur 3 :");
-			lblJoueur3.setBounds(113, 325, 60, 36);
-			lblJoueur3.setForeground(Color.WHITE);
-			panell.add(lblJoueur3);
+			lblJoueur3.setBounds(170, 405, 60, 36);
+			lblJoueur3.setForeground(Color.black);
+			jLabel.add(lblJoueur3);
 
 			lblJoueur4 = new JLabel("Joueur 4 :");
-			lblJoueur4.setBounds(111, 386, 60, 36);
-			lblJoueur4.setForeground(Color.WHITE);
-			panell.add(lblJoueur4);
+			lblJoueur4.setBounds(170, 466, 60, 36);
+			lblJoueur4.setForeground(Color.black);
+			jLabel.add(lblJoueur4);
 
 			lblAffichage1 = new JLabel("");
 			lblAffichage1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			lblAffichage1.setForeground(Color.WHITE);
-			lblAffichage1.setBounds(558, 214, 202, 15);
-			panell.add(lblAffichage1);
+			lblAffichage1.setForeground(Color.black);
+			lblAffichage1.setBounds(578, 292, 202, 15);
+			jLabel.add(lblAffichage1);
 
 			lblAffichage2 = new JLabel("");
 			lblAffichage2.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			lblAffichage2.setForeground(Color.WHITE);
-			lblAffichage2.setBounds(558, 272, 202, 15);
-			panell.add(lblAffichage2);
+			lblAffichage2.setForeground(Color.black);
+			lblAffichage2.setBounds(578, 349, 202, 15);
+			jLabel.add(lblAffichage2);
 
 			lblAffichage3 = new JLabel("");
 			lblAffichage3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			lblAffichage3.setForeground(Color.WHITE);
-			lblAffichage3.setBounds(558, 336, 202, 15);
-			panell.add(lblAffichage3);
+			lblAffichage3.setForeground(Color.black);
+			lblAffichage3.setBounds(578, 415, 202, 15);
+			jLabel.add(lblAffichage3);
 
 			lblAffichage4 = new JLabel("");
 			lblAffichage4.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			lblAffichage4.setForeground(Color.WHITE);
-			lblAffichage4.setBounds(558, 397, 202, 15);
-			panell.add(lblAffichage4);
+			lblAffichage4.setForeground(Color.black);
+			lblAffichage4.setBounds(578, 476, 202, 15);
+			jLabel.add(lblAffichage4);
 
-/*
-            textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    checkBtn();
-                }
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    checkBtn();
-                }
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    checkBtn();
-                }
-            });
-            btnLancer.setEnabled(false);
-            add(textFieldPseudo1);
-            add(btnLancer);
-*/
 			/**
 			 ** Button Lancer Jeu & ActionEvent **
 			 */
 			btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
-
 			btnLancer.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 			btnLancer.setBackground(Color.BLUE);
 			btnLancer.setForeground(Color.BLACK);
-			btnLancer.setBounds(300, 480, 236, 56);
-			panell.add(btnLancer);
-			menuJoueur.setVisible(true);
-		}
+			btnLancer.setBackground(Color.blue);
+			btnLancer.setBounds(450, 550, 236, 56);
+			jLabel.add(btnLancer);
+			this.frame.setResizable(false);
+			this.frame.setSize(1200, 720);
+			this.frame.setDefaultCloseOperation(3);
+			this.frame.setVisible(true);		}
 
 	public JTextField getTextFieldPseudo1(){
 		return textFieldPseudo1;
