@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f42e3bf3-3b5d-4130-8bb3-a4f9c5a8e38c" name="Changes" comment="menu pseudos fini (saisie + récupération)">
+      <change beforePath="$PROJECT_DIR$/src/Vue/Menu/FenetrePrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Menu/FenetrePrincipale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vue/Menu/Imageslider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vue/Menu/Imageslider.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29Hl5z5TbsnX4VBYwK523zqeYuW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="projet-poo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f42e3bf3-3b5d-4130-8bb3-a4f9c5a8e38c" name="Changes" comment="" />
+      <created>1652777713047</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652777713047</updated>
+      <workItem from="1652777714158" duration="1313000" />
+      <workItem from="1653098200055" duration="2835000" />
+      <workItem from="1653101481137" duration="620000" />
+      <workItem from="1653266506239" duration="2007000" />
+      <workItem from="1653313730213" duration="1771000" />
+      <workItem from="1653425966505" duration="13180000" />
+    </task>
+    <task id="LOCAL-00001" summary="modif régles jeu &amp; navigation fenetre">
+      <created>1653101151401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653101151401</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modif régles jeu &amp; navigation fenetre">
+      <created>1653268509842</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653268509842</updated>
+    </task>
+    <task id="LOCAL-00003" summary="menu pseudos fini (saisie + récupération)">
+      <created>1653440823061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653440823061</updated>
+    </task>
+    <task id="LOCAL-00004" summary="menu pseudos fini (saisie + récupération)">
+      <created>1653440879988</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653440879988</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modif régles jeu &amp; navigation fenetre" />
+    <MESSAGE value="menu pseudos fini (saisie + récupération)" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu pseudos fini (saisie + récupération)" />
+  </component>
+</project>

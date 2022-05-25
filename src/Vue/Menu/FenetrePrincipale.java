@@ -61,7 +61,7 @@ public class FenetrePrincipale implements ActionListener {
 			jLabel.setIcon(icon);
 	        this.frame.add(jLabel);
 
-	        b1.setBounds(500, 300, 200, 40);
+			b1.setBounds(500, 300, 200, 40);
 			b1.addActionListener(this);
 	        jLabel.add(b1);
 
@@ -179,7 +179,22 @@ public class FenetrePrincipale implements ActionListener {
 	        b3.setBounds(500, 500, 200, 40);
 	        jLabel.add(b3);
 
-	        this.frame.setResizable(false);
+			b3.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					frame.setVisible(false);
+					FenetrePrincipale menu= new FenetrePrincipale();
+					try {
+						menu.fenetre_menu();
+					} catch (IOException ex) {
+						throw new RuntimeException(ex);
+					}
+				}
+			});
+
+
+			this.frame.setResizable(false);
 	        this.frame.setSize(1200, 720);
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
@@ -194,7 +209,7 @@ public class FenetrePrincipale implements ActionListener {
 	        this.frame.setVisible(true);
 	    }
  		public void fenetrePseudos() throws IOException {
-			this.frame = new Fenetre("MenuJoueur");
+			this.frame = new JFrame("MenuJoueur");
 			//JPanel panell = new JPanel();
 			//menuJoueur.setContentPane(panell);
 
@@ -202,17 +217,14 @@ public class FenetrePrincipale implements ActionListener {
 			Image image = bufferedImage.getScaledInstance(1200, 720, Image.SCALE_DEFAULT);
 
 			ImageIcon icon = new ImageIcon(image);
-
 			JLabel jLabel = new JLabel();
 			jLabel.setIcon(icon);
 			this.frame.add(jLabel);
-
 /*
 			panell.setBorder(new EmptyBorder(5, 5, 5, 5));
 			panell.setBackground(Color.lightGray);
 			panell.setLayout(new BorderLayout(0, 0));
 			panell.setLayout(null); */
-
 
 			lblTitre = new JLabel("THE ISLAND");
 			lblTitre.setForeground(Color.black);
@@ -361,6 +373,26 @@ public class FenetrePrincipale implements ActionListener {
 			btnLancer.setBackground(Color.blue);
 			btnLancer.setBounds(450, 550, 236, 56);
 			jLabel.add(btnLancer);
+
+
+			JButton retour = new JButton("Retour");
+			retour.setBounds(450, 610, 236, 56);
+			jLabel.add(retour);
+
+			retour.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					frame.setVisible(false);
+					FenetrePrincipale menu= new FenetrePrincipale();
+					try {
+						menu.fenetre_menu();
+					} catch (IOException ex) {
+						throw new RuntimeException(ex);
+					}
+				}
+			});
+
 			this.frame.setResizable(false);
 			this.frame.setSize(1200, 720);
 			this.frame.setDefaultCloseOperation(3);
