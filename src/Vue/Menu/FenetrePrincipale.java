@@ -90,7 +90,6 @@ public class FenetrePrincipale implements ActionListener {
 	        this.frame.setDefaultCloseOperation(3);
 	        this.frame.setVisible(true);
 	    }
-
 	    public void fenetre_regles() {
 
 	        this.frame = new JFrame("REGLES DU JEU");
@@ -119,8 +118,6 @@ public class FenetrePrincipale implements ActionListener {
 
 	        image.setBounds(0, 0, 850, 600);
 	        this.frame.add(image);
-
-
 
 	        b1.setBounds(200, 100, 200, 40);
 	        image.add(b1);
@@ -171,9 +168,7 @@ public class FenetrePrincipale implements ActionListener {
 
 			JButton b2 = new JButton("Règles pièces");
 	        JButton b3 = new JButton("Retour");
-
 	        this.frame.add(jLabel);
-
 
 	        b1.setBounds(500, 300, 200, 40);
 	        jLabel.add(b1);
@@ -193,7 +188,6 @@ public class FenetrePrincipale implements ActionListener {
 
 	    public void fenetre_credits() {
 	        this.frame.setTitle("CREDITS");
-
 	        this.frame.setResizable(false);
 	        this.frame.setSize(1200, 720);
 	        this.frame.setDefaultCloseOperation(3);
