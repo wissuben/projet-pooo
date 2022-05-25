@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import Model.Plateau;
+import Vue.Plateau;
 import Model.Tuile;
 import Vue.Menu.Fenetre;
 import Vue.Menu.FenetrePrincipale;
@@ -20,14 +20,9 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//Main window = new Main();
-					//window.frame.setVisible(true);
 					FenetrePrincipale menu= new FenetrePrincipale();
 					menu.fenetre_menu();
-				//	menu.fenetre_regles();
-					//menu.fenetre_regles_generales();
-					//menu.fenetre_credits();
-					//menu.fenetrePseudos();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,17 +31,7 @@ public class Main {
 	}
 
 	public Main() throws IOException {
-		initialize();
-		Tuile.initTuiles();
-		Plateau.initPlateau();
-		Plateau.screenRender(frame);
-		Tuile.setHexagone();
-		Tuile.setImageTerrain();
-		Tuile.initVoisin();
-		for (Tuile tuile : Tuile.listeTuile) {
-			System.out.println("x:"+tuile.PositionX + "  y:" +tuile.PositionY +"  index:"+tuile.getIndex() +"  hexagon:"+tuile.getHexagon() +  "  type:"+ tuile.getTypeTuile() +  "	polygone :" + tuile.getHexagon() + "	Voisin : " + tuile.getVoisin());
-		}
-		System.out.printf("\n  %d \n",Plateau.listHexagone.size());
+
 	}
 
 	private void initialize() {

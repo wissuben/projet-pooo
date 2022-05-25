@@ -3,7 +3,18 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.management.modelmbean.ModelMBean;
+
+/**
+ * <strong>Enumeration des type tuile du plateau</strong>
+ * <p>
+ * Représente le type de la {@link Model.Tuile}. 
+ * </p>
+ *
+ * @author Adrien Taberner
+ */
 public enum TypeTuile {
+    
     FORET,
     MONTAGNE,
     PLAGE,
@@ -11,6 +22,11 @@ public enum TypeTuile {
     VIDE,
     ARRIVE;
 
+	/**
+	 * Crée une liste de {@link Model.TypeTuile} pour les tuiles.
+	 * 
+	 * @return Une liste aléatoire de {@link Model.TypeTuile}.
+	 */
 	public static ArrayList<TypeTuile> getRandomTuiles() {
 		ArrayList<TypeTuile> randomTuiles = new ArrayList<TypeTuile>();
 		int
@@ -18,8 +34,8 @@ public enum TypeTuile {
 		NombreForet = 16,
 		NombreMontagne = 8,
 		randInt=0;
+		Random randomGenerator = new Random();
 		do {
-			Random randomGenerator = new Random();
 			randInt = randomGenerator.nextInt(1,4);
 			if(randInt == 1 && NombrePlage > 0) {
 				NombrePlage--;

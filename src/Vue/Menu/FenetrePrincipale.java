@@ -1,6 +1,10 @@
 package Vue.Menu;
 import Controlleur.GetAction;
 import Controlleur.RedimensionnerImage;
+import Model.CouleurExplorateur;
+import Model.Joueur;
+import Model.Tuile;
+import Vue.Plateau;
 
 import java.awt.*;
 
@@ -373,6 +377,62 @@ public class FenetrePrincipale implements ActionListener {
 			btnLancer.setBackground(Color.blue);
 			btnLancer.setBounds(450, 550, 236, 56);
 			jLabel.add(btnLancer);
+			
+			btnLancer.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(rdbtn2.isSelected()) {
+						if(textFieldPseudo1.getText().length()>1  && textFieldPseudo2.getText().length()>1) {
+							Joueur.initJoueurs(2);
+							Joueur.listeJoueur.get(0).setNom(textFieldPseudo1.getText());
+							Joueur.listeJoueur.get(1).setNom(textFieldPseudo2.getText());
+							try {
+								Joueur.listeJoueur.get(0).initExplorateursJoueur(CouleurExplorateur.BLEU);
+								Joueur.listeJoueur.get(1).initExplorateursJoueur(CouleurExplorateur.VERT);
+								Tuile.initListTuiles();
+								frame.setVisible(false);
+								frame = new JFrame("The island");
+								frame.setResizable(false);
+						        frame.setSize(1215, 759);
+						        frame.setDefaultCloseOperation(3);
+						       	frame.setVisible(true);
+								Plateau.initPlateau(frame);
+								Plateau.affichePlacementExplorateur(Joueur.listeJoueur.get(0));
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+					
+						}
+					}else if(rdbtn4.isSelected()) {
+						if(textFieldPseudo1.getText().length()>1  && textFieldPseudo2.getText().length()>1
+						&& textFieldPseudo3.getText().length()>1  && textFieldPseudo4.getText().length()>1) {
+							Joueur.initJoueurs(4);
+							Joueur.listeJoueur.get(0).setNom(textFieldPseudo1.getText());
+							Joueur.listeJoueur.get(1).setNom(textFieldPseudo2.getText());
+							Joueur.listeJoueur.get(2).setNom(textFieldPseudo3.getText());
+							Joueur.listeJoueur.get(3).setNom(textFieldPseudo4.getText());
+							try {
+								Joueur.listeJoueur.get(0).initExplorateursJoueur(CouleurExplorateur.BLEU);
+								Joueur.listeJoueur.get(1).initExplorateursJoueur(CouleurExplorateur.VERT);
+								Joueur.listeJoueur.get(2).initExplorateursJoueur(CouleurExplorateur.JAUNE);
+								Joueur.listeJoueur.get(3).initExplorateursJoueur(CouleurExplorateur.ROUGE);
+								Tuile.initListTuiles();
+								frame.setVisible(false);
+								frame = new JFrame("The island");
+								frame.setResizable(false);
+						        frame.setSize(1215, 759);
+						        frame.setDefaultCloseOperation(3);
+						       	frame.setVisible(true);
+								Plateau.initPlateau(frame);
+								Plateau.affichePlacementExplorateur(Joueur.listeJoueur.get(0));
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+						}
+					}
+					
+				}
+			});
 
 
 			JButton retour = new JButton("Retour");
