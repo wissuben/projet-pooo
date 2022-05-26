@@ -73,7 +73,7 @@ public class ExplorateurListener implements MouseInputListener {
 			}
 		}
 		try {
-			System.out.println(Plateau.Fond.getMouseMotionListeners().getClass());
+			System.out.println(Plateau.Fond.getMouseMotionListeners());
 			System.out.println(Plateau.Fond.getMouseListeners());
 			if(TuileControlleur.phasePlacementTerminer()==true) {
 				for(MouseListener ml : Plateau.Fond.getMouseListeners()) {
@@ -82,11 +82,9 @@ public class ExplorateurListener implements MouseInputListener {
 				for(MouseMotionListener mml : Plateau.Fond.getMouseMotionListeners()) {
 					Plateau.Fond.removeMouseMotionListener(mml);
 				}
-				Plateau.Fond.removeMouseMotionListener(Plateau.getMouseMotionListener());
-				Plateau.Fond.removeMouseListener(Plateau.getMouseListener());
-				Plateau.Fond.addMouseListener(new PlateauListener(source));
-				Plateau.Fond.addMouseMotionListener(new PlateauListener(source));
-				Plateau.main_frame.add(Plateau.Fond);
+				Plateau.Fond.removeMouseMotionListener(Plateau.getMouseInputListener());
+				Plateau.Fond.removeMouseListener(Plateau.getMouseInputListener());
+				
 				Plateau.afficherPlateau();
 			}else {
 				Plateau.affichePlacementExplorateur(joueur);

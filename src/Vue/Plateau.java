@@ -15,6 +15,8 @@ import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,10 +43,11 @@ import javax.swing.text.AttributeSet.FontAttribute;
 
 import Controlleur.ExplorateurListener;
 import Controlleur.PlateauListener;
+import Controlleur.PlateauListener;
 import Model.Joueur;
 import Model.Tuile;
 
-
+// TODO: Auto-generated Javadoc
 /**
  * <strong>La classe qui nous permet d'afficher le plateau</strong>
  * <p>
@@ -63,16 +67,16 @@ public class Plateau extends JFrame{
 	/** The Fond. */
 	public static JPanel Fond;
 	
-	/**listener pour l'interaction. */
-	private static MouseListener mouseListener=null;
-	
-	/**listener pour l'interaction. */
-	private static MouseMotionListener mouseMotionListener=null;
-	
 	/** l'image de fond. */
 	private static Image imageFond=null;
-
-	/** La tuile que l'on met en surbrillance. */
+	
+	private static MouseListener mouseListener;
+	
+	private static MouseMotionListener mouseMotionListener;
+	
+	private static MouseInputListener mouseInputListener;
+	
+/** La tuile que l'on met en surbrillance. */
 	private static int indexTuileEvidence= -1 ;
 
 	/** Taille de l'image. */
@@ -116,17 +120,25 @@ public class Plateau extends JFrame{
 		joueurName.setBounds(15,75,165,50);
 		joueurName.setVerticalAlignment(JLabel.NORTH);
 		
+		JButton Aide = new JButton("AIDE");
+		Aide.setBounds(1040, 645, 120, 60);
+		Aide.setFont(new Font("Impact",Font.TRUETYPE_FONT,24));
+		Aide.setBorder(new LineBorder(new Color(220,25,120), 3));
+		Aide.addMouseListener(new PlateauListener(Aide));
+		
+		JLabel aideIcone = new JLabel();
+		if(AideJoueur.aideActive==true) {
+			aideIcone = new JLabel(AideJoueur.getAideJoueurListe().get(AideJoueur.index));
+		}
+		aideIcone.setBounds(0,0,1200,720);
 		Fond.setLayout(null);
 		Fond.add(joueurIcone);
 		Fond.add(joueurName);
-		
-		Fond.removeMouseListener(Plateau.mouseListener);
-		Fond.removeMouseMotionListener(Plateau.mouseMotionListener);
-		mouseListener = new PlateauListener(main_frame);
-		mouseMotionListener = new PlateauListener(main_frame);
-		Fond.addMouseListener(mouseListener);
-		Fond.addMouseMotionListener(mouseMotionListener);
-		
+		Fond.add(aideIcone);
+		Fond.add(Aide);
+		Plateau.mouseInputListener = new PlateauListener(Aide);
+		Fond.addMouseListener(mouseInputListener);
+		Fond.addMouseMotionListener(mouseInputListener);
 		main_frame.add(Fond);
 		main_frame.setVisible(true); 
 	}
@@ -170,13 +182,9 @@ public class Plateau extends JFrame{
 		Fond.add(indication);
 		Fond.add(explorateurIcone);
 		Fond.add(explorateurValeur);
-		
-		Fond.removeMouseListener(Plateau.mouseListener);
-		Fond.removeMouseMotionListener(Plateau.mouseMotionListener);
-		mouseListener = new ExplorateurListener(main_frame,joueur);
-		mouseMotionListener = new ExplorateurListener(main_frame,joueur);
-		Fond.addMouseListener(mouseListener);
-		Fond.addMouseMotionListener(mouseMotionListener);
+		Plateau.mouseInputListener = new ExplorateurListener(main_frame, joueur);
+		Fond.addMouseMotionListener(Plateau.mouseInputListener);
+		Fond.addMouseListener(Plateau.mouseInputListener);
 		main_frame.add(Fond);
 		main_frame.setVisible(true); 
 	}
@@ -192,7 +200,7 @@ public class Plateau extends JFrame{
 		Fond = fond;
 		JLabel Aide = new JLabel(new ImageIcon("Images/Aide1.png"));
 		Aide.setBounds(new Rectangle(0,0,1200,720));
-		Fond.addMouseListener(new PlateauListener(main_frame));
+		Fond.addMouseListener(new PlateauListener(null));
 		Fond.add(Aide);
 		main_frame.add(Fond);
 		main_frame.setVisible(true); 
@@ -265,7 +273,6 @@ public class Plateau extends JFrame{
 		Plateau.indexTuileEvidence = indexTuileEvidence;
 	}
 
-	
 	public static MouseListener getMouseListener() {
 		return mouseListener;
 	}
@@ -280,6 +287,14 @@ public class Plateau extends JFrame{
 
 	public static void setMouseMotionListener(MouseMotionListener mouseMotionListener) {
 		Plateau.mouseMotionListener = mouseMotionListener;
+	}
+
+	public static MouseInputListener getMouseInputListener() {
+		return mouseInputListener;
+	}
+
+	public static void setMouseInputListener(MouseInputListener mouseInputListener) {
+		Plateau.mouseInputListener = mouseInputListener;
 	}
 
 }

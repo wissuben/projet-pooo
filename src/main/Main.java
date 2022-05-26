@@ -20,7 +20,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FenetrePrincipale menu= new FenetrePrincipale();
+					FenetrePrincipale menu = new FenetrePrincipale();
 					menu.fenetre_menu();
 					
 				} catch (Exception e) {

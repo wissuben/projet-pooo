@@ -1,39 +1,45 @@
 package Controlleur;
 
 import java.awt.Color;
+import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.MouseInputListener;
 
 import Model.Tuile;
 import Model.TypeTuile;
+import Vue.AideJoueur;
 import Vue.Plateau;
 
 /**
- * <strong>La classe qui gère les cliques de la souris
- * dans la phase principale de jeu</strong>
+ * <strong>La classe qui gère les cliques de la souris dans la phase principale
+ * de jeu</strong>
  * <p>
  * Permet de gérer les cliques, implémente {@link MouseInputListener}.
  * </p>
+ * 
  * @author Adrien Taberner
  * @see MouseEvent
  */
 public class PlateauListener implements MouseInputListener {
 
-	private JFrame source;
-	
-	/** Permets de savoir si on a retourné une tuile avant de la prendre  */
+	private JButton source;
+
+	/** Permets de savoir si on a retourné une tuile avant de la prendre */
 	private static boolean tuileSelection = false;
-	
+
 	/**
 	 * Instancie un nouveau Mouse Listener.
+	 * 
 	 * @param source une {@link JFrame}
 	 */
-	public PlateauListener(JFrame source) {
+	public PlateauListener(JButton source) {
 		super();
 		this.source = source;
 	}
@@ -45,16 +51,45 @@ public class PlateauListener implements MouseInputListener {
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		if (e.getComponent() == source) {
+			if (AideJoueur.aideActive == false) {
+				AideJoueur.aideActive = true;
+				AideJoueur.init_aide();
+				try {
+					Plateau.afficherPlateau();
+				} catch (IOException e1) {
+				AideJoueur.index += 1;
+				}
+			}else{
+				if (AideJoueur.index < 8) {
+					try {
+						Plateau.afficherPlateau();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					AideJoueur.index += 1;
+				}else{
+					AideJoueur.aideActive = false;
+					AideJoueur.index = 0;
+					try {
+						Plateau.afficherPlateau();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		}
 		for (Tuile tuileTmp : Tuile.listeTuile) {
-			if (tuileTmp.getTypeTuile() != TypeTuile.VIDE || tuileTmp.getTypeTuile() != TypeTuile.MER || tuileTmp.getTypeTuile() != TypeTuile.ARRIVE) {
+			if (tuileTmp.getTypeTuile() != TypeTuile.VIDE || tuileTmp.getTypeTuile() != TypeTuile.MER
+					|| tuileTmp.getTypeTuile() != TypeTuile.ARRIVE) {
 				if (tuileTmp.getHexagon() != null && tuileTmp.getHexagon().contains(e.getPoint())) {
-					if (TuileControlleur.estRetournable(tuileTmp)){
-						if (tuileTmp.isFaceUp() == true && tuileSelection == false ) {
+					if (TuileControlleur.estRetournable(tuileTmp)) {
+						if (tuileTmp.isFaceUp() == true && tuileSelection == false) {
 							tuileTmp.setFaceUp(false);
-							tuileSelection=true;
-						}else if(tuileSelection == true && tuileTmp.isFaceUp() == false){
+							tuileSelection = true;
+						} else if (tuileSelection == true && tuileTmp.isFaceUp() == false) {
 							Tuile.RetirerTuile(tuileTmp.getIndex());
-							tuileSelection=false;
+							tuileSelection = false;
 						}
 						try {
 							Plateau.afficherPlateau();
@@ -130,7 +165,7 @@ public class PlateauListener implements MouseInputListener {
 	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		for (Tuile tuileTmp : Tuile.listeTuile)  {
+		for (Tuile tuileTmp : Tuile.listeTuile) {
 			if (tuileTmp.getHexagon() != null && tuileTmp.getHexagon().contains(e.getPoint())) {
 				Plateau.setIndexTuileEvidence(tuileTmp.getIndex());
 				try {
