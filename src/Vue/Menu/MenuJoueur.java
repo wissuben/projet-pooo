@@ -6,16 +6,14 @@
  *
  * @see UneAutreClasse
  * @author Oumaima HAIMAR.
- */
+ *//*
 package Vue.Menu;
 
 import Controlleur.GetAction;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -45,7 +43,8 @@ public class MenuJoueur extends JFrame implements ActionListener {
      * Launch the application.
      */
     //private JPanel panel;
-   /* public static void main(String[] args) {
+/*
+   public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -55,11 +54,12 @@ public class MenuJoueur extends JFrame implements ActionListener {
                 }
             }
         });
-    }*/
+    }
 
     /**
      * Creation de la fenetre.
      */
+/*
     public MenuJoueur() {
         Fenetre menuJoueur = new Fenetre("MenuJoueur");
         JPanel panell = new JPanel();
@@ -105,6 +105,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         /**
          ** Pseudo1 **
          */
+/*
         textFieldPseudo1 = new JTextField();
         textFieldPseudo1.setColumns(10); //On lui donne un nombre de colonnes à afficher
         textFieldPseudo1.setBounds(249, 210, 252, 36);
@@ -113,6 +114,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         /**
         ** Pseudo2 **
          */
+/*
         textFieldPseudo2 = new JTextField();
         textFieldPseudo2.setColumns(10);
         textFieldPseudo2.setBounds(249, 268, 252, 36);
@@ -121,6 +123,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         /**
         ** Pseudo3 **
          */
+/*
         textFieldPseudo3 = new JTextField();
         textFieldPseudo3.setColumns(10);
         textFieldPseudo3.setBounds(249, 334, 252, 36);
@@ -129,6 +132,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         /**
         ** Pseudo4 **
          */
+/*
         textFieldPseudo4 = new JTextField();
         textFieldPseudo4.setColumns(10);
         textFieldPseudo4.setBounds(249, 395, 252, 36);
@@ -137,6 +141,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         /**
          ** Label joueurs **
          */
+/*
         lblJoueur1 = new JLabel("Joueur 1 :");
         lblJoueur1.setBounds(113, 202, 76, 39);
         lblJoueur1.setForeground(Color.WHITE);
@@ -180,7 +185,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
         lblAffichage4.setForeground(Color.WHITE);
         lblAffichage4.setBounds(558, 397, 202, 15);
         panell.add(lblAffichage4);
-
+*/
 /*
             textFieldPseudo1.getDocument().addDocumentListener(new DocumentListener() {
                 @Override
@@ -207,7 +212,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
      ** Button continuer & ActionEvent **
      */
 
-        btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
+       ////////////////////////////////////////////////////////////////// btnLancer = new JButton(new GetAction(this,"Lancer le jeu"));
         /*btnLancer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object source = e.getSource();
@@ -220,7 +225,7 @@ public class MenuJoueur extends JFrame implements ActionListener {
                 Menu t1=new Menu();
             }
         });*/
-
+/*
         btnLancer.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
         btnLancer.setBackground(Color.BLUE);
         btnLancer.setForeground(Color.BLACK);
@@ -266,3 +271,4 @@ public class MenuJoueur extends JFrame implements ActionListener {
     }
 
 }
+*/

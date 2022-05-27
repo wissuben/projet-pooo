@@ -22,8 +22,14 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main window = new Main();
-					window.frame.setVisible(true);
+					//Main window = new Main();
+					//window.frame.setVisible(true);
+					FenetrePrincipale menu= new FenetrePrincipale();
+					menu.fenetre_menu();
+				//	menu.fenetre_regles();
+					//menu.fenetre_regles_generales();
+					//menu.fenetre_credits();
+					//menu.fenetrePseudos();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
